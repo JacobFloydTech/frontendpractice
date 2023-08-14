@@ -26,7 +26,7 @@ export default function MonsterCatSideNavbar() {
         let percents = [320 / h, 380 / h, 440 / h, 500 / h, 540 / h, 580 / h];
         document.getElementById('main')?.addEventListener('scroll', () => {
             let currentScrollY = document.getElementById('main')?.scrollTop;
-            let currentHeight = document.getElementById('main')?.clientHeight;
+            let currentHeight = document.getElementById('main')!.clientHeight;
             if (!currentScrollY || !currentHeight) {
                 return
             }
@@ -34,6 +34,7 @@ export default function MonsterCatSideNavbar() {
             let heights = percents.map((e) => {
                 return e * currentHeight;
             })
+
             console.log(heights);
             currentScrollY > heights[0] ? setDiscord(true) : setDiscord(false);
             currentScrollY > heights[1] ? setFacebook(true) : setFacebook(false);
