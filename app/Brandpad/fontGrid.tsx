@@ -9,8 +9,9 @@ export default function FontGrid() {
         let animated = false;
         window.addEventListener('wheel', (e) => {
 
-            let el = document.getElementById('textField')?.getBoundingClientRect().top - 200
-            if (window.scrollY >= el) {
+            let el = document.getElementById('textField')?.getBoundingClientRect()
+            if (!el) { return }
+            if (window.scrollY >= el.top - 200) {
                 console.log("animating");
                 gsap.fromTo("#contentText", { opacity: 0 }, { opacity: 1, duration: 2 })
                 animated = true;
