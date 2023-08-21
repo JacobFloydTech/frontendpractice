@@ -8,7 +8,8 @@ import gsap from 'gsap';
 type positions = {
     index: number,
     top: number | string,
-    right: number
+    right: number,
+    scale: number
 }
 
 export default function Background({ index, setIndex }: { index: number, setIndex: Function }) {
@@ -18,9 +19,9 @@ export default function Background({ index, setIndex }: { index: number, setInde
 
     useEffect(() => {
         if (currentIndex < index) {
-            increase(currentIndex, index);
-        } else if (index < currentIndex) {
             decrease(currentIndex, index);
+        } else if (index < currentIndex) {
+            increase(currentIndex, index);
         }
         setCurrentIndex(index);
     }, [index])
@@ -28,10 +29,10 @@ export default function Background({ index, setIndex }: { index: number, setInde
 
     useEffect(() => {
         let positions: positions[] = [
-            { index: 0, top: `${document.body.clientHeight / 2 - 60}px`, right: 150 },
-            { index: 1, top: 0, right: 0 },
-            { index: 2, top: `${document.body.clientHeight / 2 - 60}px`, right: -270 },
-            { index: 3, top: `${document.body.clientHeight - 120}px`, right: 0 }
+            { index: 0, top: `${document.body.clientHeight / 2 - 60}px`, right: 150, scale: 1 },
+            { index: 1, top: 0, right: 0, scale: 0.7 },
+            { index: 2, top: `${document.body.clientHeight / 2 - 60}px`, right: -270, scale: 0.7 },
+            { index: 3, top: `${document.body.clientHeight - 200}px`, right: 0, scale: 0.7 }
         ]
         setImages(positions);
         gsap.set(`#img${index}`, {
@@ -57,14 +58,14 @@ export default function Background({ index, setIndex }: { index: number, setInde
             if (!position) { return }
             if (parseInt(position) == 0) {
                 tl.to(el, {
-                    top: images![3].top, right: images![3].right, onComplete: () => {
+                    top: images![3].top, right: images![3].right, scale: images![3].scale, onComplete: () => {
                         if (newMainElement?.getAttribute('data-position') != "0") {
                             return decrease(currentIndex - 1, index);
                         }
                     }
                 }, 'decrease')
             } else {
-                tl.to(el, { top: images![parseInt(position) - 1].top, right: images![parseInt(position) - 1].right }, 'decrease')
+                tl.to(el, { top: images![parseInt(position) - 1].top, right: images![parseInt(position) - 1].right, scale: images![parseInt(position) - 1].scale }, 'decrease')
             }
             el?.setAttribute('data-position', `${parseInt(position) == 0 ? 3 : parseInt(position) - 1}`)
         }
@@ -81,14 +82,14 @@ export default function Background({ index, setIndex }: { index: number, setInde
             if (!position) { return };
             if (parseInt(position) == 3) {
                 tl.to(el, {
-                    top: images![0].top, right: images![0].right, onComplete: () => {
+                    top: images![0].top, right: images![0].right, scale: images![0].scale, onComplete: () => {
                         if (newMainElement?.getAttribute('data-position') != "0") {
                             return increase(currentIndex + 1, index);
                         }
                     }
                 }, 'increase')
             } else {
-                tl.to(el, { top: images![parseInt(position) + 1].top, right: images![parseInt(position) + 1].right }, 'increase')
+                tl.to(el, { top: images![parseInt(position) + 1].top, right: images![parseInt(position) + 1].right, scale: images![parseInt(position) + 1].scale }, 'increase')
             }
             el?.setAttribute('data-position', `${parseInt(position) == 3 ? 0 : parseInt(position) + 1}`)
         }
@@ -100,9 +101,9 @@ export default function Background({ index, setIndex }: { index: number, setInde
 
     return (
         <div className="w-screen h-screen overflow-hidden relative">
-            {images?.map((e, i) => {
+            {images?.map(({ top, right }, i) => {
                 return (
-                    <div data-position={i} id={`img${i}`} style={{ width: 120, height: 120, position: 'absolute', top: e.top, right: e.right }}>
+                    <div data-position={i} id={`img${i}`} style={{ width: 120, height: 120, position: 'absolute', top: top, right: right }}>
                         <img style={{ objectFit: 'contain' }} src={`/appleProducts/${i}.jpeg`}></img>
                     </div>
                 )
