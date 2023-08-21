@@ -1,13 +1,14 @@
 import CardGrid from '@/carGrid/page';
 import BrandpadApp from './Brandpad/app';
 
-import './globals.css';
+import '/public/globals.css'
 import MonsterCatPage from './Monstercat/monsterCatPage';
+import ApplePage from '@/carousalWebsiteApple/page';
 
 export default function Page() {
   return (
-    <div className='min-w-screen min-h-screen p-0 m-0 overflow-x-hidden'>
-      <CardGrid />
+    <div className='w-screen h-screen p-0 m-0'>
+      <ApplePage />
     </div>
   )
 }
