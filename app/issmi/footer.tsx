@@ -4,13 +4,13 @@ export default function Footer() {
     return (
         <div className="w-full h-auto mt-24 bg-gray-800 text-white ">
 
-            <div className="w-4/5 grid grid-cols-2 mx-auto  h-auto gap-x-48">
-                <Logo />
+            <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 mx-auto  h-auto gap-x-48">
+                <Logo width={150} height={150} />
                 <p >ISSIMI is a full-service marketplace to buy and sell the most extraordinary motor vehicles in the world. Our team of automotive experts, with over 100 years of combined experience, deliver a transparent and delightful experience with every transaction. Whether you're looking to buy or sell a vintage classic or a modern supercar, ISSIMI was built with your collection in mind.</p>
                 <div className="flex flex-col mx-auto w-full px-4">
-                    <div className="flex flex-row justify-between w-full items-center">
+                    <div className="flex flex-col md:flex-row justify-between w-full items-center my-8 md:my-0">
                         <p>Follow Our Journey</p>
-                        <div className="flex flex-row space-x-4 items-center">
+                        <div className="flex md:flex-row py-2 md:py-0  space-x-4 items-center">
                             <Facebook />
                             <Instagram />
                             <Youtube />
@@ -69,8 +69,8 @@ function LinkedIn() {
     )
 }
 
-function Logo() {
+export function Logo({ width, height }: { width: number, height: number }) {
     return (
-        <svg className="col-span-2" xmlns="http://www.w3.org/2000/svg" width={150} height={150} viewBox="0 0 4223.93 885.89"><path fill="currentColor" d="M1317.2,170.74h-46.42V679.13h46.42Zm620.92,127.09h44.93c-3.48-77.2-70.25-134.29-164.83-134.29-93.84,0-166.08,56.35-166.08,138.27,0,65.28,46.18,106.24,125.86,129.82l60.82,17.88c63,18.37,106.25,41.95,106.25,93.83,0,61.07-55.36,102-131.32,102-68.51,0-122.14-33-127.1-93.34H1639c5.46,80.43,71,135.79,174.76,135.79C1924,687.82,1990,625.51,1990,544.09c0-84.41-73.48-118.16-138-136.29l-53.62-15.39c-49.4-13.9-101.28-39-101.28-92.59,0-54.61,48.9-94.58,119.89-94.58C1884.25,205.24,1932.41,241.24,1938.12,297.83Zm649.34,0h44.93c-3.48-77.2-70.25-134.29-164.83-134.29-93.84,0-166.07,56.35-166.07,138.27,0,65.28,46.17,106.24,125.86,129.82l60.81,17.88c63.06,18.37,106.25,41.95,106.25,93.83,0,61.07-55.36,102-131.32,102-68.51,0-122.13-33-127.1-93.34h-47.66c5.46,80.43,71,135.79,174.76,135.79,110.22,0,176.25-62.31,176.25-143.73,0-84.41-73.48-118.16-138-136.29l-53.62-15.39c-49.4-13.9-101.28-39-101.28-92.59,0-54.61,48.9-94.58,119.9-94.58C2533.59,205.24,2581.75,241.24,2587.46,297.83Zm419.73-127.09h-46.44V679.13h46.44Zm344.85,0V679.13h43.72V268.79h3.95l171.56,410.34h42.18L3785,268.79h4V679.13h43.68V170.74H3779L3594.59,613.59h-4.46L3405.68,170.74Zm871.89,0h-46.41V679.13h46.41Z"></path><circle cx="442.94" cy="442.94" r="442.94" fill="#006603"></circle><polygon points="301.7 685.37 368.7 685.37 573.21 168.6 506.21 168.6 301.7 685.37" fill="#fff"></polygon></svg>
+        <svg className="md:col-span-2" xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 4223.93 885.89"><path fill="currentColor" d="M1317.2,170.74h-46.42V679.13h46.42Zm620.92,127.09h44.93c-3.48-77.2-70.25-134.29-164.83-134.29-93.84,0-166.08,56.35-166.08,138.27,0,65.28,46.18,106.24,125.86,129.82l60.82,17.88c63,18.37,106.25,41.95,106.25,93.83,0,61.07-55.36,102-131.32,102-68.51,0-122.14-33-127.1-93.34H1639c5.46,80.43,71,135.79,174.76,135.79C1924,687.82,1990,625.51,1990,544.09c0-84.41-73.48-118.16-138-136.29l-53.62-15.39c-49.4-13.9-101.28-39-101.28-92.59,0-54.61,48.9-94.58,119.89-94.58C1884.25,205.24,1932.41,241.24,1938.12,297.83Zm649.34,0h44.93c-3.48-77.2-70.25-134.29-164.83-134.29-93.84,0-166.07,56.35-166.07,138.27,0,65.28,46.17,106.24,125.86,129.82l60.81,17.88c63.06,18.37,106.25,41.95,106.25,93.83,0,61.07-55.36,102-131.32,102-68.51,0-122.13-33-127.1-93.34h-47.66c5.46,80.43,71,135.79,174.76,135.79,110.22,0,176.25-62.31,176.25-143.73,0-84.41-73.48-118.16-138-136.29l-53.62-15.39c-49.4-13.9-101.28-39-101.28-92.59,0-54.61,48.9-94.58,119.9-94.58C2533.59,205.24,2581.75,241.24,2587.46,297.83Zm419.73-127.09h-46.44V679.13h46.44Zm344.85,0V679.13h43.72V268.79h3.95l171.56,410.34h42.18L3785,268.79h4V679.13h43.68V170.74H3779L3594.59,613.59h-4.46L3405.68,170.74Zm871.89,0h-46.41V679.13h46.41Z"></path><circle cx="442.94" cy="442.94" r="442.94" fill="#006603"></circle><polygon points="301.7 685.37 368.7 685.37 573.21 168.6 506.21 168.6 301.7 685.37" fill="#fff"></polygon></svg>
     )
 }
