@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Background from "./background";
 import Navbar from "./navbar";
+import Description from "./description";
 
 
 export default function ApplePage() {
@@ -12,6 +13,7 @@ export default function ApplePage() {
         <div>
             <Navbar setIndex={setIndex} />
             <Background setIndex={setIndex} index={index} />
+            <Description index={index} />
         </div>
     )
 }

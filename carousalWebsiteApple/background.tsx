@@ -29,7 +29,7 @@ export default function Background({ index, setIndex }: { index: number, setInde
 
     useEffect(() => {
         let positions: positions[] = [
-            { index: 0, top: `${document.body.clientHeight / 2 - 60}px`, right: 150, scale: 1 },
+            { index: 0, top: `${document.body.clientHeight / 2 - 60}px`, right: 150, scale: 1.2 },
             { index: 1, top: 0, right: 0, scale: 0.7 },
             { index: 2, top: `${document.body.clientHeight / 2 - 60}px`, right: -270, scale: 0.7 },
             { index: 3, top: `${document.body.clientHeight - 200}px`, right: 0, scale: 0.7 }
