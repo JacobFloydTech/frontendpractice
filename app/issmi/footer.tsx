@@ -2,7 +2,7 @@ import { ButtonSVG } from "./whatWeDo"
 
 export default function Footer() {
     return (
-        <div className="w-full h-auto mt-24 bg-gray-800 text-white ">
+        <div className="w-auto h-auto mt-24 bg-gray-800 text-white ">
 
             <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 mx-auto  h-auto gap-x-48">
                 <Logo width={150} height={150} />

@@ -6,12 +6,14 @@
 
 body { 
     background: lightgray;
-    overflow-x: hidden;
+    overflow: hidden;
+    overflow-y: auto;
 
 }
 
 * { 
     box-sizing: border-box;
+   
 }
 
 @keyframes topRowAnimation { 
@@ -52,3 +54,11 @@ body {
 }
 }
 
+
+
+@media only screen and (max-width: 600px) { 
+
+    html, body { 
+        overflow-x: hidden;
+    }
+}
