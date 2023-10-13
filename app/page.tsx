@@ -20,7 +20,7 @@ import Grid from './issmi/grid';
 export default function Page() {
 
   return (
-    <div className='w-full h-auto'>
+    <div id='page' className='w-full h-auto'>
       <div className='textIndicator top-2/3 h-1/3 w-full absolute'></div>
       <Home />
     </div>

@@ -34,7 +34,7 @@ export default function BuySellSection() {
     })
     return (
         <div className="flex w-full h-1/2 flex-col md:flex-row">
-            <div className="md:w-1/2 md:h-full h-1/2 w-full bg-green-800 ">
+            <div className="md:w-1/2 md:h-full h-1/2 w-full bg-green-800 py-8">
                 <div className="flex items-center justify-center text-white h-full w-full">
                     <div className="flex flex-col md:w-1/2 w-2/3 h-1/2 ">
                         <p className="md:text-7xl text-lg">Buy</p>
@@ -42,7 +42,7 @@ export default function BuySellSection() {
                     </div>
                 </div>
             </div>
-            <div className="md:w-1/2 md:h-full h-1/2 w-full bg-green-500 mb-20">
+            <div className="md:w-1/2 md:h-full h-1/2 w-full bg-green-500  py-8">
                 <div className="flex items-center justify-center text-white h-full w-full">
                     <div className="flex flex-col md:w-1/2 w-2/3 ">
                         <p className="md:text-7xl text-lg">Sell</p>

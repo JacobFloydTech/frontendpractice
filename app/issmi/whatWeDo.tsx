@@ -30,27 +30,26 @@ export default function WhatWeDo() {
                     <source src="cars/issimi.mp4" type="video/mp4"></source>
                 </video>
             </div>
-            <StayInTheLoop />
-            <Footer />
+
         </div>
     )
 }
 
-function StayInTheLoop() {
+export function StayInTheLoop() {
     const ref = useRef<any>();
     useEffect(() => {
-        gsap.fromTo(ref.current, { opacity: 0, translateY: '-=40' }, {
+        gsap.fromTo(ref.current, { opacity: 0, translateY: '-=20' }, {
             opacity: 1, translateY: 0, scrollTrigger: {
                 trigger: ref.current,
                 scrub: true,
                 start: 'top 50%',
-                end: 'top 30%'
+                end: 'top 40%'
             }
         })
     }, [])
     return (
-        <div className="w-full h-full flex flex-col mt-24 items-center">
-            <p ref={ref} className="text-5xl mb-8 w-2/3">Stay in the loop</p>
+        <div className="w-full h-full flex flex-col md:mt-24 mt-8 items-center ">
+            <p ref={ref} className="text-5xl mb-8 w-2/3 mx-auto text-center">Stay in the loop</p>
             <div className="flex flex-col md:flex-row h-auto w-full      ">
                 <div className="md:w-1/2 h-full w-full flex relative    ">
                     <JoinCommunityText />
@@ -74,7 +73,7 @@ function NewsletterText() {
         Array.from(ref.current.childNodes).forEach((e: any) => {
             gsap.fromTo(e, { opacity: 0, translateX: '+=50' }, {
                 opacity: 1, translateX: 0, scrollTrigger: {
-                    trigger: e, scrub: true, start: 'top 70%', end: 'top 50%'
+                    trigger: e, scrub: true, start: 'top 80%', end: 'top 60%'
                 }
             })
         })
@@ -82,8 +81,8 @@ function NewsletterText() {
     return (
         <div ref={ref} className="w-2/3 h-2/3 md:px-8 left-1/2 transform -translate-x-1/2 md:left-[10%] md:translate-x-0 absolute md:top-[10%] -top-[4%] z-20 max-w-[220px]  md:max-w-none">
             <p className="xl:text-2xl md:text-xl sm:text-sm font-semibold text-green-500">Join our Newsletter</p>
-            <p className="xl:text-xl text-sm md:text-base  md:leading-8">Join our mailing list to receive priority access on the latest auctions, exclusive content, and special events.</p>
-            <button className=" font-semibold flex items-center md:py-4">
+            <p className="xl:text-xl text-sm md:text-lg md:leading-8">Join our mailing list to receive priority access on the latest auctions, exclusive content, and special events.</p>
+            <button className=" font-semibold flex items-center md:py-14">
                 <p>Join our newsletter</p>
                 <ButtonSVG white={false} />
             </button>
@@ -97,7 +96,7 @@ function JoinCommunityText() {
         Array.from(ref.current.childNodes).forEach((e: any) => {
             gsap.fromTo(e, { opacity: 0, translateX: '-=50' }, {
                 opacity: 1, translateX: 0, scrollTrigger: {
-                    trigger: e, scrub: true, start: 'top 70%', end: 'top 50%',
+                    trigger: e, scrub: true, start: 'top 80%', end: 'top 60%',
                 }
             })
         })

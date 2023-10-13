@@ -8,7 +8,7 @@ export default function Navbar() {
     const ref = useRef<any>();
 
     return (
-        <div ref={ref} className="bg-white fixed h-auto z-50 max-w-full w-full justify-between px-4 top-0 left-0 sm:flex-col md:flex-row items-center flex  overflow-hidden mb-4">
+        <div ref={ref} className="bg-white fixed h-auto z-50 w-full justify-between px-4 top-0 left-0 flex-col md:flex-row items-center flex  overflow-hidden mb-4">
             <div className="w-auto h-auto items-center justify-center">
                 <Logo width={80} height={80} />
             </div>
@@ -24,4 +24,5 @@ export default function Navbar() {
         </div>
     )
 }
+
 
