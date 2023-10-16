@@ -39,8 +39,25 @@ body {
         transform: translateY(0px);
     }
 }
+
+
 .hide { 
     opacity: 0;
+}
+
+
+@keyframes renderMobileMenu { 
+    0% { 
+        transform: translateX(120px);
+    } 100% { 
+        transform: translateX(0);
+    }
+}
+
+
+.mobileMenu { 
+    animation-name: renderMobileMenu;
+    animation-duration: 200ms;
 }
 
 .render { 
