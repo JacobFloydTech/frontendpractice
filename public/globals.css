@@ -4,16 +4,23 @@
 
 
 
-body { 
-    background: lightgray;
-    overflow: hidden;
-    overflow-y: auto;
 
+#myImages { 
+    height: 500px;
+    aspect-ratio: 165 / 89;
+    overflow: hidden;
 }
 
-* { 
-    box-sizing: border-box;
-   
+html { 
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: hidden;
+}
+
+body { 
+
+    width: 100%;
+    height: 100%;
 }
 
 @keyframes topRowAnimation { 
