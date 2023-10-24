@@ -31,7 +31,15 @@ export default function PorscheNavbar() {
 
 export function ImageSlider() {
     const ref = useRef<any>();
+    let timeout: NodeJS.Timeout;
     useEffect(() => {
+        window.addEventListener('resize', () => {
+            if (timeout != null) {
+                clearInterval(timeout);
+            }
+
+            main();
+        })
         main();
     }, [])
 
@@ -56,7 +64,7 @@ export function ImageSlider() {
 
         async function animate() {
 
-            setInterval(() => {
+            timeout = setInterval(() => {
                 Array.from(el?.children as HTMLCollectionOf<HTMLElement>).forEach((e) => {
                     const offset = getTranslateY(e.style.transform)
 
@@ -64,10 +72,9 @@ export function ImageSlider() {
                         gsap.set(e, { translateY: `${height * 5}px` });
                     }
                     gsap.to(e, { translateY: `-=${height}px`, duration: 2 })
-
-
                 })
-            }, 2200)
+            }, 3000)
+
         }
 
         await setDiv();
@@ -83,7 +90,7 @@ export function ImageSlider() {
     }
     return (
 
-        <div ref={ref} id='myImages' className="w-2/3 overflow-hidden relative mx-auto min-h-screen top-0 ">
+        <div ref={ref} id='myImages' className="w-5/6 overflow-hidden relative mx-auto aspect-square md:aspect-video top-0 ">
 
             <img className="image " src={`/9ff/imageSlider/${0}.jpg`}></img>
 
@@ -94,7 +101,7 @@ export function ImageSlider() {
 export function GridContent() {
 
     return (
-        <div className="w-auto h-auto  grid  grid-cols-10 bg-gray-200 mx-4 myGrid tracking-[1.2px]">
+        <div className="w-auto h-auto  grid grid-cols-1 md:grid-cols-10 bg-gray-200 mx-4 myGrid tracking-[1.2px]">
             <div className=" m-4 col-span-4 overflow-hidden  ">
                 <img className="object-cover w-full h-full" src="/9ff/gridContent/992Tune.jpg"></img>
             </div>
@@ -121,7 +128,7 @@ export function GridContent() {
                 </p>
                 <p>We also make your vehicle unique - inside and out. <br></br>Your satisfaction is both an incentive and a benchmark for us.</p>
             </div>
-            <div className="m-4 col-span-6 bg-white grid grid-cols-5 pl-4 ">
+            <div className="m-4 col-span-6 bg-white grid md:grid-cols-5 pl-4 ">
                 <div className="col-span-3">
                     <button>
                         <img className="h-6 mx-4 my-2" src="/9ff/arrow.svg"></img>
@@ -195,7 +202,7 @@ function ImageChanger() {
 export function Footer() {
     return (
         <div className="w-full h-auto bg-gray-100">
-            <div className="bg-white text-3xl mx-4 flex flex-col justify-center items-center gap-y-2 my-4 ">
+            <div className="bg-white text-3xl mx-4 flex flex-col justify-center items-center text-center gap-y-2 my-4 ">
                 <p>Are you interested in a vehicle from 9ff?</p>
                 <p className="font-bold">We are here for you</p>
                 <button className="bg-black p-2 text-white mb-4">Contact</button>

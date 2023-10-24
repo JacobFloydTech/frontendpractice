@@ -30,11 +30,16 @@ export default function SupercarsHome() {
                     <p>Discover our 9FF supercars below</p>
                 </div>
                 <div className="carGrid gap-y-5">
-                    {cars.map((car) => {
+                    {cars.map((car, i) => {
                         return (
-                            <CarComponent car={car} />
+                            <CarComponent key={i} car={car} />
                         )
                     })}
+                </div>
+                <div className="bg-[#211F1F] my-4 w-full h-full flex flex-col uppercase justify-center items-center text-white py-4 space-y-5">
+                    <p className="text-2xl">Are one of our 9ff supercars a question for you?</p>
+                    <p className="text-3xl font-semibold">We are here for you</p>
+                    <button className="2xl p-2 border-2 border-white mb-4"> Contact</button>
                 </div>
             </div>
 

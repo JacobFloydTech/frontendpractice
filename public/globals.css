@@ -42,6 +42,12 @@
     object-fit: cover;
 }
 
+@media only screen and (max-width: 600px) {
+    .image { 
+        object-fit: fill;
+    }
+}
+
 #myImages { 
     height: 80%;    
     overflow: hidden;
