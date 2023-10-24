@@ -1,6 +1,5 @@
 import CardGrid from '@/public/cars/page';
 import BrandpadApp from './Brandpad/app';
-'use client';
 
 
 import gsap from "gsap";
