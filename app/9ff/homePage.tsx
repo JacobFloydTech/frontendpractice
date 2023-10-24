@@ -1,12 +1,15 @@
 "use client";
 
 import gsap from "gsap"
+
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react"
 
 
 export default function PorscheNavbar() {
+    const router = useRouter();
     return (
-        <div className="flex sticky p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center justify-around  z-50">
+        <div className="flex fixed p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center justify-around  z-50">
             <div className="flex items-center ">
                 <img src={'/9ff/logo.png'}></img>
                 <img className="h-1/2 mx-4" src="/9ff/title.png"></img>
@@ -14,7 +17,7 @@ export default function PorscheNavbar() {
             <div className="w-auto  flex justify-around space-x-6 text-lg font-semibold">
                 <button>Home</button>
                 <button>Services</button>
-                <button>Supercars</button>
+                <button onClick={() => { router.push('/9ff/supercars') }}>Supercars</button>
                 <button>Shop</button>
                 <button>Gallery</button>
                 <button>About us</button>
@@ -80,7 +83,7 @@ export function ImageSlider() {
     }
     return (
 
-        <div ref={ref} id='myImages' className="w-2/3 overflow-hidden relative mx-auto  ">
+        <div ref={ref} id='myImages' className="w-2/3 overflow-hidden relative mx-auto min-h-screen top-0 ">
 
             <img className="image " src={`/9ff/imageSlider/${0}.jpg`}></img>
 
@@ -151,8 +154,7 @@ function ImageChanger() {
 
     async function changeImage() {
 
-
-
+        if (!curr || !next) { return; }
         if (next.current.style.opacity == 0) {
             setNextImage((next) => next == 2 ? 0 : next + 1);
             gsap.to(next.current, { opacity: 1, duration: 2 });

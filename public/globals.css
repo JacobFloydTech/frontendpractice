@@ -8,6 +8,32 @@
 }
 
 
+.carGrid { 
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: repeat(4, 400px);
+}
+
+.carGrid > * { 
+    width: auto;
+}
+
+.animateCarTitle { 
+    animation-name: fadeIn;
+    animation-duration: 450ms;
+}
+
+@keyframes fadeIn { 
+    0% { 
+        opacity: 0;
+    } 100% { 
+        opacity: 1;
+    }
+}
+
+
+
+
 
 .image { 
     position: absolute;
