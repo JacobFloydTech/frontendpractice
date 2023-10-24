@@ -16,12 +16,14 @@ import { VaporwaveBackground } from '@/nurburgring/page';
 import Home from '@/app/issmi/page';
 import Navbar from './issmi/navbar';
 import Grid from './issmi/grid';
+import PorscheNavbar from './9ff/homePage';
 import PorscheTunerPage from '@/app/9ff/page';
 
 export default function Page() {
 
   return (
-    <div id='page' className='overflow-x-hidden h-screen'>
+    <div id='page' className='overflow-x-hidden h-full'>
+      <PorscheNavbar />
       <PorscheTunerPage />
     </div>
   )

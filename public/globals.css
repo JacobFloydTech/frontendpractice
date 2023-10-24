@@ -3,17 +3,26 @@
 @tailwind utilities;
 
 
+.myGrid > * {
+    max-height: 300px; 
+}
+.image { 
+    position: absolute;
+    height: 100%;
 
+    width: 100%;
+    object-fit: cover;
+}
 
 #myImages { 
-    height: 500px;
-    aspect-ratio: 165 / 89;
+    height: 80%;    
     overflow: hidden;
 }
 
 html { 
     min-height: 100vh;
     min-width: 100vw;
+    height: 100%;
     overflow-x: hidden;
 }
 
