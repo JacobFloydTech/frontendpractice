@@ -15,9 +15,8 @@ import { StayInTheLoop } from "./whatWeDo";
 export default function Home() {
 
     return (
-        <div className="h-auto w-full">
+        <div className="h-auto w-auto">
 
-            <Navbar />
             <Grid />
             <BuySellSection />
             <CarPhotoSection />
