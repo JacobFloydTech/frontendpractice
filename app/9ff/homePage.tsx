@@ -4,6 +4,7 @@ import gsap from "gsap"
 
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react"
+import ImageChanger from "./imageSlider";
 
 
 export default function PorscheNavbar() {
@@ -16,7 +17,7 @@ export default function PorscheNavbar() {
             </div>
             <div className="w-auto  flex justify-around space-x-6 text-lg font-semibold">
                 <button>Home</button>
-                <button>Services</button>
+                <button onClick={() => { router.push('/9ff/services') }}>Services</button>
                 <button onClick={() => { router.push('/9ff/supercars') }}>Supercars</button>
                 <button>Shop</button>
                 <button>Gallery</button>
@@ -146,59 +147,11 @@ export function GridContent() {
 
             </div>
             <div className="col-span-4  m-4">
-                <ImageChanger />
+                <ImageChanger maxCount={2} dir='gridContent/finalrow' />
             </div>
         </div>
     )
 }
-
-function ImageChanger() {
-    let [currentImage, setCurrentImage] = useState(0);
-    let [nextImage, setNextImage] = useState(1);
-
-    const curr = useRef<any>();
-    const next = useRef<any>();
-
-    async function changeImage() {
-
-        if (!curr || !next) { return; }
-        if (next.current.style.opacity == 0) {
-            setNextImage((next) => next == 2 ? 0 : next + 1);
-            gsap.to(next.current, { opacity: 1, duration: 2 });
-            gsap.to(curr.current, {
-                opacity: 0, duration: 2, onComplete: () => {
-                    setTimeout(() => {
-                        changeImage()
-                    }, 2000);
-                }
-            });
-        } else {
-            setCurrentImage((curr) => curr == 2 ? 0 : curr + 1)
-            gsap.to(curr.current, { opacity: 1, duration: 2 });
-            gsap.to(next.current, {
-                opacity: 0, duration: 2, onComplete: () => {
-                    setTimeout(() => {
-                        changeImage()
-                    }, 2000);
-                }
-            });
-        }
-    }
-
-
-    useEffect(() => {
-        changeImage();
-
-    }, [])
-
-    return (
-        <div className="relative w-full h-full overflow-hidden ">
-            <img ref={curr} className="absolute top-0 h-full w-full object-cover  " src={`9ff/gridContent/finalrow${currentImage}.jpg`}></img>
-            <img ref={next} className="absolute top-0 h-full w-full object-cover " src={`9ff/gridContent/finalrow${nextImage}.jpg`}></img>
-        </div>
-    )
-}
-
 export function Footer() {
     return (
         <div className="w-full h-auto bg-gray-100">
