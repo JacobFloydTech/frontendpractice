@@ -22,7 +22,7 @@ export default function BackgroundGrid() {
             return;
         }
 
-        const rectSize = 18 //pixels;
+        const rectSize = 20 //pixels;
         const gridRows = svg.clientWidth / rectSize;
         const gridCols = svg.clientHeight / rectSize;
         let originPoint = [Math.floor(gridRows * 0.5), Math.floor(gridCols * 0.5)];
