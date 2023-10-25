@@ -132,14 +132,16 @@ function getIndex(currentCar: carServiceDetails) {
 export default function CarModel({ params: { car } }: { params: { car: string } }) {
     const router = useRouter();
     let [currentCar, setCurrentCar] = useState<carServiceDetails>(carsServiceDetails.filter(({ id }) => car === id)[0]);
-    let [index, setIndex] = useState<number>(getIndex(currentCar))
+
     if (!currentCar) { return router.push('/9ff/services') }
+    let [index, setIndex] = useState<number>(getIndex(currentCar))
+
     return (
-        <div className="bg-stone-200">
+        <div className="bg-stone-200 w-auto">
             <div className="mx-4 overflow-hidden max-h-[650px]">
                 <img className={currentCar.id == '993' ? "-translate-y-36" : ""} src={`/9ff/services/models/${currentCar.id}.jpg`}></img>
             </div>
-            <div className="w-full h-auto py-4 mt-4 flex flex-col items-center justify-center bg-white ">
+            <div className="w-auto h-auto py-4 mt-4 flex flex-col items-center justify-center bg-white mx-4">
                 <p className="bg-stone-600 p-2 z-30 text-3xl">{currentCar.generationName}</p>
                 <p className="border-stone-600 p-4 border-2 -translate-y-4 text-4xl">Performance Overview</p>
             </div>
@@ -147,9 +149,11 @@ export default function CarModel({ params: { car } }: { params: { car: string } 
                 currentCar.markGenerations ? currentCar.markGenerations.map((car, i) => {
                     return (
                         <CarInfo key={i} currentCar={car} />
+
                     )
                 }) : <CarInfo currentCar={currentCar} />
             }
+
             <Footer />
             <NavigationFooterServices index={index} cars={carsServiceDetails} />
         </div >
@@ -180,7 +184,7 @@ function getFormattedDate(n: number) {
 
 function CarInfo({ currentCar }: { currentCar: carServiceDetails }) {
     return (
-        <div className="px-4 w-full h-auto flex flex-col justify-center mt-4 space-y-4 bg-stone-200">
+        <div className="flex flex-col justify-center items-center m-4  bg-stone-200">
 
             <div className="flex flex-col w-full h-auto bg-white py-8 px-16 mx-4">
                 <p className="text-3xl font-semibold">{currentCar.generationName}</p>

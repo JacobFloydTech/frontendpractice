@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 
 .myGrid > * { 
     min-height: 400px;
@@ -61,19 +63,20 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
-html { 
-    height: 100vh;
-    width: auto;
-
+html {
+width: 100%;
+height: 100%;
+position: relative;
+}
+body {
+width: 100%;
+height: 100%;
+position: relative;
 }
 
-body { 
-
-    width: 100%;
-    height: 100%;
-}
 
 @keyframes topRowAnimation { 
     0% { 

@@ -7,7 +7,7 @@ import IntroVideo from "./introSection"; import Navbar from "./navbar";
 
 export default function BrandpadApp() {
     return (
-        <div id="main" className="max-w-screen">
+        <div id="main" className="h-auto w-auto overflow-x-clip">
             <Header />
             <Navbar />
             <Intro />

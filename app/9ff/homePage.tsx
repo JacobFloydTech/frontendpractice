@@ -16,7 +16,7 @@ export default function PorscheNavbar() {
                 <img className="h-1/2 mx-4" src="/9ff/title.png"></img>
             </div>
             <div className="w-auto  flex justify-around space-x-6 text-lg font-semibold">
-                <button>Home</button>
+                <button onClick={() => { router.push('/9ff/') }}>Home</button>
                 <button onClick={() => { router.push('/9ff/services') }}>Services</button>
                 <button onClick={() => { router.push('/9ff/supercars') }}>Supercars</button>
                 <button>Shop</button>

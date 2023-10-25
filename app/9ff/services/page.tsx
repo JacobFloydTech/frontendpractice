@@ -50,6 +50,12 @@ function Grid() {
                 <p className="font-semibold text-3xl uppercase">Individual Vehicle Tuning</p>
                 <p>9FF stands for performance improvements, vehicle conversions, <br></br> vehicle optimizations, engine and transmission conversions <br></br>according to individual customer requirements.</p>
                 <p>Thanks to 9FF's many years of experience as a sports car tuner in the high-performance sector, we are happy to advise you and tailor the individual components of your 9FF vehicle to suit you. If you wish, we can also make your sports car unique inside and out.</p>
+                <div className="justify-end flex -translate-y-10">
+                    <div className="flex">
+                        <p className="text-lg font-semibold text-right mr-4">Contact us <br></br> today</p>
+                        <img src="/9ff/arrow.svg" className='h-10'></img>
+                    </div>
+                </div>
             </div>
             <div className="col-span-5">
                 <ImageChanger maxCount={1} dir={"services/imageChanger/"} />
