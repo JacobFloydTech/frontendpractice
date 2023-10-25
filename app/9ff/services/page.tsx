@@ -1,7 +1,10 @@
 import ImageChanger from "../imageSlider"
+import ServiceOptions from "./menu"
+
 
 
 export default function ServiceHome() {
+
     return (
         <div className="max-w-screen h-auto flex flex-col">
             <div className="fixed mt-4">
@@ -30,17 +33,7 @@ export default function ServiceHome() {
                     <p>We are experts for individual vehicle tuning, performance improvements, visual vehicle refinements, optimizations, repairs and service for all sports cars<br></br> from Zuffenhausen. Here you will find an insight into our services sorted by model.</p>
                     <div className="flex text-2xl justify-around w-1/2 ml-24">
                         <img src="/9ff/services/chooseModel.png"></img>
-                        <div className="flex flex-col">
-                            <p>Choose your model</p>
-                            <div className="flex space-x-7 text-lg">
-                                <button>11 & 930</button>
-                                <button>964</button>
-                                <button>993</button>
-                                <button>996</button>
-                                <button>997</button>
-                                <button>991</button>
-                            </div>
-                        </div>
+                        <ServiceOptions />
                     </div>
                 </div>
                 <Grid />

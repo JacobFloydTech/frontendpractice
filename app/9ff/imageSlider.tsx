@@ -3,11 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
-
-type imageChangerProps = {
-    dir: string;
-    maxCount: number;
-}
+import type { imageChangerProps } from "@/types";
 
 
 

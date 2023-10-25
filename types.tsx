@@ -5,3 +5,28 @@ export type Car = {
     redirect: string;
 }
 
+export type imageChangerProps = {
+    dir: string;
+    maxCount: number;
+}
+
+export type carServiceDetails = {
+    productionStart?: number;
+    productionEnd?: number;
+    id: string;
+    generationName: string;
+    nautralEngineStats?: engineStats;
+    turboEngineStats?: engineStats;
+    markGenerations?: carServiceDetails[]
+}
+
+export type engineStats = {
+    lowLimitEngineCapacity: number;
+    highLimitEngineCapacity: number;
+    lowLimitHorsePower: number;
+    highLimitHorsePower: number;
+}
+
+
+
+
