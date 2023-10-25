@@ -4,6 +4,7 @@ import { carServiceDetails } from "@/types"
 import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react"
+import NavigationFooterServices from "../../navigationFooter";
 
 const carsServiceDetails: carServiceDetails[] = [
     {
@@ -119,9 +120,19 @@ const carsServiceDetails: carServiceDetails[] = [
     }
 ]
 
+function getIndex(currentCar: carServiceDetails) {
+    for (var i = 0; i < carsServiceDetails.length; i++) {
+        if (carsServiceDetails[i].id == currentCar.id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 export default function CarModel({ params: { car } }: { params: { car: string } }) {
     const router = useRouter();
     let [currentCar, setCurrentCar] = useState<carServiceDetails>(carsServiceDetails.filter(({ id }) => car === id)[0]);
+    let [index, setIndex] = useState<number>(getIndex(currentCar))
     if (!currentCar) { return router.push('/9ff/services') }
     return (
         <div className="bg-stone-200">
@@ -140,6 +151,7 @@ export default function CarModel({ params: { car } }: { params: { car: string } 
                 }) : <CarInfo currentCar={currentCar} />
             }
             <Footer />
+            <NavigationFooterServices index={index} cars={carsServiceDetails} />
         </div >
     )
 }
@@ -170,7 +182,7 @@ function CarInfo({ currentCar }: { currentCar: carServiceDetails }) {
     return (
         <div className="px-4 w-full h-auto flex flex-col justify-center mt-4 space-y-4 bg-stone-200">
 
-            <div className="flex flex-col w-full h-auto bg-white py-8 px-16">
+            <div className="flex flex-col w-full h-auto bg-white py-8 px-16 mx-4">
                 <p className="text-3xl font-semibold">{currentCar.generationName}</p>
                 <p className="pt-2 ">
                     {currentCar.productionStart && <span>From '{getFormattedDate(currentCar.productionStart)}</span>}
