@@ -29,7 +29,7 @@ export default function ImageSlider({ src, maxCount }: { src: string, maxCount: 
     function animate(children: Array<HTMLElement>, width: number) {
         setTimeout(() => {
             animate(children, width);
-        }, 3000);
+        }, Math.random() * 3000 + 2000);
         children.forEach((e) => {
             const marginLeft = parseInt(e.style.marginLeft);
 
