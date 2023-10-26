@@ -17,6 +17,7 @@ export default function MonsterCatPage() {
             <MonsterCatLogo />
             <MonsterCatSideNavbar />
             <MonsterCatIntroPlayer />
+            <div id='trigger' className="absolute top-24 left-0"></div>
             <MonstercatStreaming />
             <MonsterCatSideNavbar />
             <MonsterCatSidebarExtended />
