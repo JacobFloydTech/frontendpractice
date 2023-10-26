@@ -59,6 +59,15 @@
     overflow: hidden;
 }
 
+.issmiImageSlider { 
+    height: 100%;
+    max-height: 224px;
+    min-height: 96px;
+    position: absolute;
+    top: 0;
+
+}
+
 * { 
     box-sizing: border-box;
     padding: 0;

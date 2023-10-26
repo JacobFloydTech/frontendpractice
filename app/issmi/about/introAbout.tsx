@@ -30,15 +30,17 @@ export default function IntroHero() {
         })
     }
     return (
-        <div className="flex justify-center items-center flex-col">
+        <div className="p-12 flex justify-center items-center flex-col rounded-md  w-full md:w-2/3 bg-gray-50">
             <p className="text-4xl font-bold">We make it easy to <span className="text-green-800">buy</span> and <span className="text-green-800">sell</span></p>
-            <div ref={ref} className="h-14 my-4 w-full text-4xl font-bold relative text-center overflow-hidden ">
+            <div ref={ref} className="h-12 md:h-14 my-4 w-full text-3xl md:text-4xl font-bold relative text-center overflow-hidden ">
                 <p>Exotic Cars</p>
                 <p>Extraordinary cars</p>
                 <p>Collector cars</p>
                 <p>Enthusiast cars</p>
                 <p>Hypercars</p>
             </div>
+            <p className="text-2xl">We believe in building trust and transparency<br></br>  between collectors, and we're committed to <br></br>simplifying the process.</p>
+            <button className="border-green-600 border-2 bg-green-600 text-white p-4 mt-12 rounded-full font-bold text-2xl hover:bg-transparent hover:text-black">Create an account</button>
         </div>
     )
 }

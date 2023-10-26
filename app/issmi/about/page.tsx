@@ -1,3 +1,4 @@
+import ImageSlider from "./imageSlider";
 import IntroHero from "./introAbout";
 
 
@@ -8,8 +9,10 @@ export default function Page() {
                 <p className="text-5xl">Take a look under the hood</p>
                 <p className="pt-4 text-2xl">Learn about what drives our passion to be the <br></br> trusted partner for collectors and why people choose ISSIMI.</p>
 
-                <img className="px-48 py-12" src="/issmi/aboutHero.jpg"></img>
+                <img className="px-48 py-12 hidden md:block" src="/issmi/aboutHero.jpg"></img>
+
                 <IntroHero />
+                <ImageSlider maxCount={6} src="/issmi/imageSlider/" />
             </div>
         </div>
     )
