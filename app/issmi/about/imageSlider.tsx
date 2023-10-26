@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 import '/public/globals.css'
 
-export default function ImageSlider({ src, maxCount }: { src: string, maxCount: number }) {
+export default function ImageSlider({ src, maxCount, reverse }: { src: string, maxCount: number, reverse: boolean }) {
     const ref = useRef<any>();
 
     useEffect(() => { main() }, [])
@@ -29,20 +29,31 @@ export default function ImageSlider({ src, maxCount }: { src: string, maxCount: 
     function animate(children: Array<HTMLElement>, width: number) {
         setTimeout(() => {
             animate(children, width);
-        }, Math.random() * 3000 + 2000);
+        }, 3200);
         children.forEach((e) => {
             const marginLeft = parseInt(e.style.marginLeft);
 
-            if (marginLeft >= document.body.clientWidth) {
-                gsap.set(e, { marginLeft: `-${width}px` })
+            if (reverse) {
+                if (marginLeft <= -width) {
+                    gsap.set(e, { marginLeft: `${document.body.clientWidth + width}px` })
+                }
+
+            } else {
+                if (marginLeft >= document.body.clientWidth + width) {
+                    gsap.set(e, { marginLeft: `-${width}px` })
+                }
+
             }
-            gsap.to(e, { marginLeft: `+=${width}px`, duration: 2.2, ease: 'power2.inOut' })
+            gsap.to(e, { marginLeft: `${reverse ? '-=' : '+='}${width}px`, duration: 2.2, ease: 'power2.inOut' })
+
+
+
         })
 
     }
 
     return (
-        <div ref={ref} className="w-full h-48  my-12 relative ">
+        <div ref={ref} className="w-full h-60  mt-6 relative ">
             {Array.from({ length: maxCount }).map((e, i) => {
                 return (
                     <div className="h-full aspect-video px-2 absolute top-0" key={i} >

@@ -12,7 +12,8 @@ export default function Page() {
                 <img className="px-48 py-12 hidden md:block" src="/issmi/aboutHero.jpg"></img>
 
                 <IntroHero />
-                <ImageSlider maxCount={6} src="/issmi/imageSlider/" />
+                <ImageSlider maxCount={6} src="/issmi/imageSlider/" reverse={false} />
+                <ImageSlider maxCount={6} src="/issmi/imageSliderReverse/" reverse={true} />
             </div>
         </div>
     )
