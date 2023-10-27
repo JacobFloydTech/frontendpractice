@@ -12,15 +12,19 @@ export default function ImageSlider({ src, maxCount, reverse }: { src: string, m
 
     function main() {
         const children: HTMLElement[] = [].slice.call(ref.current.children as HTMLCollection);
-        console.log(children);
+
         if (!children) { return }
         const width = children[0].clientWidth;
 
 
         children.forEach((e: any, i) => {
             e.style.width = width;
-            console.log(i);
-            e.style.marginLeft = `${(i * width)}px`
+            if (reverse) {
+                e.style.marginLeft = `${document.body.clientWidth - (i * width)}px`
+            } else {
+                e.style.marginLeft = `${(i * width)}px`
+            }
+
         })
 
         animate(children, width);

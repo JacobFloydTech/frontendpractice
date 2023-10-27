@@ -1,5 +1,6 @@
 import ImageSlider from "./imageSlider";
 import IntroHero from "./introAbout";
+import OurHistory from "./ourHIstory";
 
 
 export default function Page() {
@@ -14,6 +15,7 @@ export default function Page() {
                 <IntroHero />
                 <ImageSlider maxCount={6} src="/issmi/imageSlider/" reverse={false} />
                 <ImageSlider maxCount={6} src="/issmi/imageSliderReverse/" reverse={true} />
+                <OurHistory />
             </div>
         </div>
     )
