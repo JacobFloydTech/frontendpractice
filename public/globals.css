@@ -5,6 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 
+html, body { 
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .myGrid > * { 
     min-height: 400px;
 }
@@ -71,7 +78,7 @@
 .historyGrid { 
     display: grid;
     grid-template-columns: 45% 10% 45%;
-
+    grid-template-rows: 1;
 }
 
 .historyGrid > :nth-child(3n+1) { 
@@ -89,16 +96,6 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-html {
-width: 100%;
-height: 100%;
-position: relative;
-}
-body {
-width: 100%;
-height: 100%;
-position: relative;
-}
 
 
 @keyframes topRowAnimation { 
@@ -157,10 +154,3 @@ position: relative;
 }
 
 
-
-@media only screen and (max-width: 600px) { 
-
-    html, body { 
-        overflow-x: hidden;
-    }
-}
