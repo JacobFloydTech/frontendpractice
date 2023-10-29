@@ -9,25 +9,28 @@ export default function Navbar() {
     const [showMenu, setShowMenu] = useState(false);
 
     return (
+        <div className="fixed h-auto w-full z-50">
+            <div ref={ref} className="bg-white fixed h-auto z-50 w-full justify-between px-4 top-0 left-0 flex-row items-center flex  overflow-x-hidden ">
+                <div className="w-auto h-auto items-center justify-center">
+                    <Logo width={80} height={80} />
+                </div>
+                <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden md:block">
+                    <button>Auctions</button>
+                    <button>Sell</button>
+                    <button>Private Sales</button>
+                    <button>About</button>
+                    <button>Support</button>
+                    <button className="border-black p-2 rounded-full border-2 hover:border-white hover:bg-black hover:text-white">Sign in</button>
+                </div>
+                <div className="md:hidden">
+                    <HamburgerIcon setMenu={setShowMenu} menu={showMenu} />
+                </div>
 
-        <div ref={ref} className="bg-white fixed w-full h-auto z-50  justify-between px-4 top-0 left-0 flex-row items-center flex  overflow-x-hidden ">
-            <div className="w-auto h-auto items-center justify-center">
-                <Logo width={80} height={80} />
             </div>
-            <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden md:block">
-                <button>Auctions</button>
-                <button>Sell</button>
-                <button>Private Sales</button>
-                <button>About</button>
-                <button>Support</button>
-                <button className="border-black p-2 rounded-full border-2 hover:border-white hover:bg-black hover:text-white">Sign in</button>
-            </div>
-            <div className="md:hidden">
-                <HamburgerIcon setMenu={setShowMenu} menu={showMenu} />
-            </div>
-
+            {
+                showMenu && <MobileMenu />
+            }
         </div>
-
 
     )
 }
