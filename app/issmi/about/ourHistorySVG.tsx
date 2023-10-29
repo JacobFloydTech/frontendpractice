@@ -1,6 +1,7 @@
 "use client"
 
 import { constants } from "fs";
+import { relative } from "path";
 import { useEffect, useRef, useState } from "react"
 
 type linePoints = {
@@ -8,14 +9,13 @@ type linePoints = {
     y2: number
 }
 
-export default function NewHistorySVG() {
+export default function OurHistorySVG({ mobile }: { mobile: boolean }) {
     const ref = useRef<any>();
     const [points, setPoints] = useState<Array<number>>([]);
-    const [linePoints, setLinePoints] = useState<Array<linePoints>>([]);
 
 
     useEffect(() => {
-        const elements = ['2017', '2019', '2020', '2021', '2022'].map((id: string) => {
+        const elements = (mobile ? ['mobile2017', 'mobile2019', 'mobile2020', 'mobile2021', 'mobile2022'] : ['2017', '2019', '2020', '2021', '2022']).map((id: string) => {
             return document.getElementById(id);
         })
 
@@ -23,60 +23,41 @@ export default function NewHistorySVG() {
         window.addEventListener('resize', () => getLocationPoints(elements))
 
     }, [])
-    function getOffsetPoints() {
-        setLinePoints([]);
-        let children = document.getElementsByClassName('circle');
-        const parent = document.getElementById('historyGridContainer')
-        if (!children || !parent) { return; }
-        const parentHeight = parent.clientHeight;
 
-        for (var i = 0; i < children.length - 1; i++) {
-            let curr = children[i];
-            let next = children[i + 1];
-            if (!curr || !next) { return; }
-            const cy1 = parseInt(curr.getAttribute('cy') as string)
-            const cy2 = parseInt(next.getAttribute('cy') as string)
-            const { height } = curr.getBoundingClientRect();
-            const percentageOffset = ((height / 2) / parentHeight) * 100;
-            if (!cy1 || !cy2) { return }
-            const newRecord: linePoints = {
-                y1: cy1 + percentageOffset,
-                y2: cy2 - percentageOffset,
-            }
-            setLinePoints((points) => { return [...points, newRecord] })
-            console.log(newRecord);
-        }
-    }
     function getLocationPoints(elements: any) {
-        const parent = document.getElementById('historyGridContainer')
+        const parent = document.getElementById('historyGridContainer');
         if (!parent) { return; }
         setPoints([]);
+
         const height = parent.clientHeight;
         elements.forEach((e: HTMLElement) => {
+            console.log(e.getBoundingClientRect());
             const relativeheight = e.offsetTop + 40
             const percentage = relativeheight / height * 100;
+
             setPoints((points) => { return [...points, percentage] })
         })
+        console.log(points);
+
+
 
 
     }
 
 
-    useEffect(() => { getOffsetPoints(); }, [setPoints, points])
 
     return (
         <svg id='circleContainer' height='100%' width='100%' >
+            <line x1='50%' x2='50%' y1='2%' y2='98%' stroke='white' strokeWidth={4} />
+            <line x1='50%' x2='25%' y1='98%' y2='95%' stroke='white' strokeWidth={4} />
+            <line x1='50%' x2='75%' y1='98%' y2='95%' stroke='white' strokeWidth={4} />
             {points?.map((p, i) => {
                 return (
 
-                    <circle className="circle" cx='50%' cy={`${p}%`} r='20' stroke-width={6} fill='none' stroke='black' />
+                    <circle className="circle" cx='50%' cy={`${p}%`} r='12' stroke-width={4} fill='#183029' stroke='white' />
                 )
             })}
-            {linePoints?.map((e, i) => {
-                return (
-                    <line x1='50%' x2='50%' y1={`${e.y1 + (i > 0 ? 0.5 : 0)}%`} y2={`${e.y2 + 0.8}%`} strokeWidth={3} stroke='black' />
-                )
-            })}
+
 
         </svg>
     )

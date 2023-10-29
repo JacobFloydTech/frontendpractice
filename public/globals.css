@@ -53,6 +53,7 @@ html, body {
     object-fit: cover;
 }
 
+
 @media only screen and (max-width: 600px) {
     .image { 
         object-fit: fill;
@@ -72,7 +73,14 @@ html, body {
     top: 0;
 
 }
+@media only screen and (max-width: 700px) {
+    .historyGrid { 
 
+    display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) { 
 .historyGrid { 
     display: grid;
     grid-template-columns: 45% 10% 45%;
@@ -86,6 +94,22 @@ html, body {
 .historyGrid > :nth-child(3n+3) { 
     text-align: left;
 }
+}
+
+
+@media only screen and (max-width: 700px) { 
+.historyGridMobile { 
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+}
+@media only screen and (min-width: 700px) { 
+    .historyGridMobile { 
+        display: none;
+}
+}
+
+
 
 * { 
     box-sizing: border-box;
