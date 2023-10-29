@@ -5,16 +5,23 @@ import { Logo } from "./footer";
 import gsap from "gsap";
 
 export default function Navbar() {
-    const ref = useRef<any>();
-    const [showMenu, setShowMenu] = useState(false);
 
+    const [showMenu, setShowMenu] = useState(false);
+    useEffect(() => {
+        const el = document.getElementById('navbar');
+        if (!el) { return }
+        gsap.set(el, { maxWidth: el.clientWidth })
+
+    }, [])
     return (
         <div className="fixed h-auto w-full z-50">
-            <div ref={ref} className="bg-white fixed h-auto z-50 w-full justify-between px-4 top-0 left-0 flex-row items-center flex  overflow-x-hidden ">
+
+
+            <div id='navbar' className="bg-white fixed h-auto z-50 w-full justify-between px-4 top-0 left-0 flex-row items-center flex  overflow-x-hidden  ">
                 <div className="w-auto h-auto items-center justify-center">
                     <Logo width={80} height={80} />
                 </div>
-                <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden md:block">
+                <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden  md:block">
                     <button>Auctions</button>
                     <button>Sell</button>
                     <button>Private Sales</button>
@@ -25,19 +32,21 @@ export default function Navbar() {
                 <div className="md:hidden">
                     <HamburgerIcon setMenu={setShowMenu} menu={showMenu} />
                 </div>
-
             </div>
-            {
-                showMenu && <MobileMenu />
+            {showMenu &&
+                <MobileMenu />
             }
+
         </div>
+
+
 
     )
 }
 
 function MobileMenu() {
     return (
-        <div id='mobileMenu' className="md:hidden w-3/5 py-4 text-2xl h-1/2 z-50 bg-gray-400 px-2 items-center justify-center space-x-7 flex-col flex -mt-4 float-right ml-auto rounded-xl bg-opacity-80 mobileMenu">
+        <div id='mobileMenu' className="md:hidden w-full py-4 text-2xl h-1/2 z-50 bg-gray-400 px-2 items-center justify-center space-x-7 flex-col flex -mt-4 float-right ml-auto rounded-xl bg-opacity-80 mobileMenu">
             <button className="text-left  w-full px-3 py-2">Auctions</button>
             <button className="text-left  w-full  py-2">Sell</button>
             <button className="text-left  w-full  py-2">Private Sales</button>

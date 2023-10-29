@@ -3,6 +3,7 @@ import '/public/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import PorscheNavbar from './9ff/homePage'
+import Navbar from './issmi/navbar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
       <body >
+
 
         {children}</body>
     </html>

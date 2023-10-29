@@ -57,7 +57,7 @@ export default function ImageSlider({ src, maxCount, reverse }: { src: string, m
     }
 
     return (
-        <div ref={ref} className="w-full h-60  mt-6 relative ">
+        <div ref={ref} className="w-full h-60 overflow-hidden z-20  mt-6 relative ">
             {Array.from({ length: maxCount }).map((e, i) => {
                 return (
                     <div className="h-full aspect-video px-2 absolute top-0" key={i} >
