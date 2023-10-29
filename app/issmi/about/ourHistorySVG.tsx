@@ -9,16 +9,16 @@ type linePoints = {
     y2: number
 }
 
-export default function OurHistorySVG({ mobile }: { mobile: boolean }) {
+export default function OurHistorySVG() {
     const ref = useRef<any>();
     const [points, setPoints] = useState<Array<number>>([]);
 
 
     useEffect(() => {
-        const elements = (mobile ? ['mobile2017', 'mobile2019', 'mobile2020', 'mobile2021', 'mobile2022'] : ['2017', '2019', '2020', '2021', '2022']).map((id: string) => {
+        const elements = ['2017', "mobile2019", '2019', '2020', '2021', "mobile2021", '2022'].map((id: string) => {
             return document.getElementById(id);
         })
-
+        console.log(elements);
         getLocationPoints(elements);
         window.addEventListener('resize', () => getLocationPoints(elements))
 

@@ -16,6 +16,10 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      gridTemplateColumns: { 
+        'history-large': '45% 10% 45%;',
+        'history-small': '30% 70%',
+      }
     },
   },
   plugins: [],
