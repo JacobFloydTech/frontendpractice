@@ -5,6 +5,15 @@ export type Car = {
     redirect: string;
 }
 
+export type Listing = {
+    src: string;
+    year: string;
+    title: string;
+    make: string[];
+    description: string;
+    asking: number
+}
+
 export type TeamMember = {
     src: string;
     position: string;
