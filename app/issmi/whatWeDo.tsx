@@ -80,11 +80,11 @@ function NewsletterText() {
     })
     return (
         <div ref={ref} className="w-2/3 h-2/3 md:px-8 left-1/2 transform -translate-x-1/2 md:left-[10%] md:translate-x-0 absolute md:top-[10%] -top-[4%] z-20 max-w-[220px]  md:max-w-none">
-            <p className="xl:text-2xl md:text-xl sm:text-sm font-semibold text-green-500">Join our Newsletter</p>
+            <p className="xl:text-2xl md:text-xl sm:text-sm font-semibold text-[#4C8A63]">Join our Newsletter</p>
             <p className="xl:text-xl text-sm md:text-lg md:leading-8">Join our mailing list to receive priority access on the latest auctions, exclusive content, and special events.</p>
             <button className=" font-semibold flex items-center md:py-14">
                 <p>Join our newsletter</p>
-                <ButtonSVG white={false} />
+                <ButtonSVG color1="#4C8A63" color2='white' />
             </button>
         </div>
     )
@@ -107,7 +107,7 @@ function JoinCommunityText() {
             <p className=" md:leading-8 md:text-base text-sm md:my-2">Join our community of enthusiasts and collectors. Get connected with our team and sign up for updates for your specific vehicle preferences</p>
             <button className="xl:py-8 py-0 text-xl font-semibold  flex items-center  pl-2">
                 <p className="md:text-lg text-sm">Create an Account</p>
-                <ButtonSVG white={true} />
+                <ButtonSVG color1="white" color2='#4C8A63' />
             </button>
         </div>
     )
@@ -160,19 +160,18 @@ function HorizontalWhiteSVG() {
     )
 }
 
-export function ButtonSVG({ white }: { white: boolean }) {
+export function ButtonSVG({ color1, color2 }: { color1: string, color2: string, }) {
     const [hover, setHover] = useState(false);
-    const [color, setColor] = useState(white ? 'white' : 'green');
-    const [hoverColor, setHoverColor] = useState(!white ? 'white' : 'green')
+
     const ref = useRef<any>();
 
 
     return (
         <svg onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} ref={ref} width="70" height="70" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="70" fill={!hover ? 'transparent' : color} stroke={hover ? hoverColor : color} />
-            <line x1="50" y1="100" x2="150" y2="100" stroke={hover ? hoverColor : color} strokeWidth={3} />
-            <line x1="150" y1="100" x2="115" y2="120" stroke={hover ? hoverColor : color} strokeWidth={3} ></line>
-            <line x1="150" y1="100" x2="115" y2="80" stroke={hover ? hoverColor : color} strokeWidth={3} ></line>
+            <circle cx="100" cy="100" r="70" className="-z-10" fill={hover ? color1 : color2} stroke={!hover ? color1 : color2} strokeOpacity={4} />
+            <line x1="50" y1="100" x2="150" y2="100" stroke={!hover ? color1 : color2} strokeWidth={3} />
+            <line x1="150" y1="100" x2="115" y2="120" stroke={!hover ? color1 : color2} strokeWidth={3} ></line>
+            <line x1="150" y1="100" x2="115" y2="80" stroke={!hover ? color1 : color2} strokeWidth={3} ></line>
         </svg>
     )
 }

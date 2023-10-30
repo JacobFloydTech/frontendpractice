@@ -20,7 +20,7 @@ export default function Footer() {
                     </div>
                     <div className="flex items-center flex-row py-2">
                         <p className="mr-4 font-semibold">Sign up for our newsletter</p>
-                        <ButtonSVG white />
+                        <ButtonSVG color1="white" color2='rgb(31,31,31)' />
                     </div>
                     <p className="text-sm pt-2" >FAQs</p>
                     <p className="text-sm pt-2">Contact</p>

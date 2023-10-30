@@ -30,8 +30,8 @@ export default function Grid() {
                 trigger: '.textIndicator',
                 markers: false,
                 scrub: true,
-                start: 'top 65%',
-                end: 'top 0%',
+                start: 'top 60%',
+                end: 'top 10%',
 
             }
         })
@@ -48,19 +48,24 @@ export default function Grid() {
                         <CarCell key={index} title={title} price={price} src={src} animate={animate} />
                     )
                 })}
-                <div className="flex justify-center">
-                    <button className="border-black text-xl font-semibold px-4 py-2 rounded-full border-2 h-14 mt-12 hover:border-white hover:bg-black hover:text-white">View Our Auctions Catalog</button>
-                </div>
+                <Button mobile={false} />
                 {popped &&
 
                     <CarCell title={popped.title} price={popped.price} src={popped.src!} animate={popped.animate} />
                 }
+                <Button mobile={true} />
 
             </div>
-
-
         </div >
 
+    )
+}
+
+function Button({ mobile }: { mobile: boolean }) {
+    return (
+        <div className={" justify-center  " + (mobile ? " md:hidden flex" : "hidden md:flex")} >
+            <button className="border-black text-xl font-semibold px-4 py-2 rounded-full border-2 h-14 mt-12 hover:border-white hover:bg-black hover:text-white">View Our Auctions Catalog</button>
+        </div>
     )
 }
 
@@ -89,7 +94,7 @@ export function CarCell({ title, price, src, animate }: { title: string, price: 
                     <p className="text-sm"> ${price.toLocaleString()}</p>
                 </div>}
             <p className="pl-4 absolute z-20 text-white bottom-4">Accepting starting bids</p>
-            <img ref={image} className={"rounded-2xl overflow-hidden" + (animate ? ' hide' : ' topRow')} src={src}></img>
+            <img ref={image} className={" rounded-2xl  overflow-hidden" + (animate ? ' hide' : ' topRow')} src={src}></img>
         </div>
     )
 }

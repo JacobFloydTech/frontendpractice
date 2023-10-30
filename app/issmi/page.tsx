@@ -15,7 +15,7 @@ import { StayInTheLoop } from "./whatWeDo";
 export default function Home() {
 
     return (
-        <div className="h-auto w-auto">
+        <div className="h-auto w-auto overflow-x-hidden">
 
             <Grid />
             <BuySellSection />
