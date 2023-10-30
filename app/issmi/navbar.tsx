@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className="fixed h-auto w-full z-50">
 
 
-            <div id='navbar' className="bg-white fixed h-auto z-50 w-full justify-between px-4 top-0 left-0 flex-row items-center flex  overflow-x-hidden  ">
+            <div id='navbar' className="bg-gray-200 fixed h-auto z-50 w-full justify-between px-4 top-0 left-0 flex-row items-center flex  overflow-x-hidden  ">
                 <div className="w-auto h-auto items-center justify-center">
                     <Logo width={80} height={80} />
                 </div>

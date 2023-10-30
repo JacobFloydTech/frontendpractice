@@ -28,6 +28,20 @@ html, body {
 .carGrid > * { 
     width: auto;
 }
+.sellingTagLine { 
+    font: bold;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+}
+
+.sellingDescriptionParagraph { 
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    text-align: left;
+}
 
 .animateCarTitle { 
     animation-name: fadeIn;

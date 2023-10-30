@@ -42,7 +42,7 @@ function Listing({ listing, privateSale }: { listing: Listing, privateSale: bool
     return (
         <div className="text-left inline-flex flex-col space-y-4  ">
 
-            <div className="h-24 md:h-64 2xl:h-96 w-full">
+            <div className="h-24 md:h-64 2xl:h-96 w-full cursor-pointer">
                 <img className="w-full h-full object-cover rounded-xl" src={`/issmi/listings/${listing.src}`}></img>
             </div>
 
@@ -67,7 +67,7 @@ function SearchIcon() {
 function PrivateSales() {
     return (
         <div className="flex mt-24 flex-col w-full h-auto">
-            <p className="text-3xl tracking-wide">Access our private listings by joining our <span className="underline text-[#A98000]">VIP Program</span></p>
+            <p className="text-3xl tracking-wide">Access our private listings by joining our <span className="underline text-[#A98000] cursor-pointer ">VIP Program</span></p>
             <div className="grid grid-cols-3 gap-y-6 gap-x-4 my-6">
                 {privateListingData.map((l, i) => {
                     return <Listing privateSale={true} listing={l} key={i} />

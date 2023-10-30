@@ -34,8 +34,8 @@ export default function Page() {
           <div className='bg-black text-white   font-semibold p-8 w-full h-full rounded-2xl '>
             Click here to go to ISSMI homepage
             <div className='p-4 text-2xl'>
-              <p>Now with: About Page</p>
-              <p>Constructing Auction Page</p>
+              <p>Now with: About Page,  Auction Page</p>
+              <p>Constructing Sell page</p>
             </div>
           </div>
         </div>
