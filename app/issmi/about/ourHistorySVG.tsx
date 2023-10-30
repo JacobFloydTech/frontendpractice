@@ -14,6 +14,7 @@ export default function OurHistorySVG() {
     const [points, setPoints] = useState<Array<number>>([]);
 
 
+
     useEffect(() => {
         let elements = ['2017', "mobile2019", '2019', '2020', '2021', "mobile2021", '2022'].map((id: string) => {
             return document.getElementById(id);
@@ -27,12 +28,12 @@ export default function OurHistorySVG() {
     function addAnimations(elements: HTMLElement[]) {
         elements.forEach((e) => {
 
-            gsap.fromTo(e, { opacity: 0, translateY: '+=30' }, {
-                opacity: 1, duration: 3, translateY: '-=30', scrollTrigger: {
+            gsap.fromTo(e, { opacity: 0, translateY: '+=40' }, {
+                opacity: 1, duration: 3, translateY: '-=40', scrollTrigger: {
                     trigger: e,
                     scrub: true,
                     start: 'top 70%',
-                    end: 'top -5%'
+                    end: 'top 15%'
                 }
             })
         })
@@ -50,15 +51,22 @@ export default function OurHistorySVG() {
 
             setPoints((points) => { return [...points, percentage] })
         })
+
     }
 
 
 
     return (
         <svg id='circleContainer' height='100%' width='100%' >
-            <line x1='50%' x2='50%' y1='2.5%' y2='98%' stroke='#4C665E' strokeWidth={4} />
-            <line x1='50%' x2='25%' y1='98%' y2='95%' stroke='#4C665E' strokeWidth={4} />
-            <line x1='50%' x2='75%' y1='98%' y2='95%' stroke='#4C665E' strokeWidth={4} />
+            <line x1='50%' x2='50%' y1={`${points[0]}%`} y2='98%' stroke='#4C665E' strokeWidth={4} />
+            <g className="hidden md:block">
+                <line x1='50%' x2='25%' y1='98%' y2='95%' stroke='#4C665E' strokeWidth={4} />
+                <line x1='50%' x2='75%' y1='98%' y2='95%' stroke='#4C665E' strokeWidth={4} />
+            </g>
+            <g className="md:hidden z-30">
+                <line x1='50%' x2='0%' y1='98%' y2='97%' stroke='#4C665E' strokeWidth={4} />
+                <line x1='50%' x2='100%' y1='98%' y2='97%' stroke='#4C665E' strokeWidth={4} />
+            </g>
             {points?.map((p, i) => {
                 return (
 

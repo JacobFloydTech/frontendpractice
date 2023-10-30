@@ -3,15 +3,15 @@ import OurHistorySVG from "./ourHistorySVG"
 export default function OurHistoryGrid() {
     return (
         <div id='historyGridContainer' className="md:grid-cols-history-large grid-cols-history-small grid relative my-12 ">
-            <div className="justify-around flex-col mt-48 space-y-12 px-4 hidden md:flex">
+            <div className=" flex-col justify-around  px-4 hidden md:flex">
                 <History2019 mobile={false} />
                 <History2021 mobile={false} />
             </div>
-            <div className="p-4">
+            <div className="md:p-4">
                 <OurHistorySVG />
             </div>
-            <div className=" flex justify-around flex-col space-y-24 2xl:space-y-24 px-4 text-left">
-                <div id='2017' className="flex flex-col space-y-4 2xl:space-y-8 md:w-2/3 ">
+            <div className="ml-2 flex justify-around flex-col space-y-8 2xl:space-y-24 md:px-4 text-left ">
+                <div id='2017' className="flex flex-col space-y-4 2xl:space-y-8 md:w-2/3 w-full">
                     <p className="font-semibold text-2xl 2xl:text-4xl ">2017</p>
                     <p className="text-left 2xl:text-2xl">ISSIMI, Inc was founded with a mission to bring trust and transparency to the previously opaque and costly secondary market for collector cars. Since our establishment, we have been dedicated to providing a delightful and transparent experience for buyers and sellers. Our first US location opened in Northern California, and we have since grown to serve a global market.</p>
                     <p className="text-left 2xl:text-2xl">Porsche GT1 transacts on our marketplace, from Italy to California.</p>

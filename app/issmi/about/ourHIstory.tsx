@@ -17,7 +17,7 @@ export default function OurHistory() {
                 </div>
             </div>
             <div className="flex flex-col md:mx-12 2xl:mx-24 bg-[#183029] text-white p-8">
-                <p className="my-5 text-6xl ">Our History</p>
+                <p className=" text-6xl ">Our History</p>
                 <OurHistoryGrid />
 
             </div>

@@ -18,7 +18,7 @@ const config: Config = {
       },
       gridTemplateColumns: { 
         'history-large': '45% 10% 45%;',
-        'history-small': '30% 70%',
+        'history-small': '10% 90%',
       }
     },
   },
