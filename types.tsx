@@ -5,6 +5,14 @@ export type Car = {
     redirect: string;
 }
 
+export type TeamMember = {
+    src: string;
+    position: string;
+    favouriteCar: string;
+    description: string;
+    name: string;
+}
+
 export type imageChangerProps = {
     dir: string;
     maxCount: number;
