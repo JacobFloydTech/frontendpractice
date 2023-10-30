@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "./footer";
 import gsap from "gsap";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
 
@@ -22,7 +23,7 @@ export default function Navbar() {
                     <Logo width={80} height={80} />
                 </div>
                 <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden  md:block">
-                    {['Auctions', 'Sell', 'Private Sales', 'About', 'Support'].map((e: string, i: number) => {
+                    {['auctions', 'Sell', 'Private Sales', 'about', 'Support'].map((e: string, i: number) => {
                         return (
                             <Button content={e} key={i} />
                         )
@@ -44,6 +45,7 @@ export default function Navbar() {
     )
 }
 function Button({ content }: { content: string }) {
+    const router = useRouter();
     const [hover, setHover] = useState(false);
     const ref = useRef<any>();
     useEffect(() => {
@@ -55,11 +57,12 @@ function Button({ content }: { content: string }) {
     }, [setHover, hover])
     return (
         <div onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} className="inline-flex flex-col">
-            <button className="text-[16px] px-1">{content}</button>
+            <button onClick={() => { router.push(`/issmi/${content}`) }} className="text-[16px] px-1 capitalize">{content}</button>
             <div ref={ref} className="h-[2px] bg-black w-0 mx-auto"></div>
         </div>
     )
 }
+
 
 
 function MobileMenu() {

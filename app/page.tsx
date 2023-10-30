@@ -35,6 +35,7 @@ export default function Page() {
             Click here to go to ISSMI homepage
             <div className='p-4 text-2xl'>
               <p>Now with: About Page</p>
+              <p>Constructing Auction Page</p>
             </div>
           </div>
         </div>
