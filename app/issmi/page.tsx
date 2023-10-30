@@ -23,7 +23,7 @@ export default function Home() {
             <Auction />
             <WhatWeDo />
             <StayInTheLoop />
-            <Footer />
+
 
         </div>
     )

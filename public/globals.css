@@ -73,41 +73,7 @@ html, body {
     top: 0;
 
 }
-@media only screen and (max-width: 700px) {
-    .historyGrid { 
 
-    display: none;
-    }
-}
-
-@media only screen and (min-width: 700px) { 
-.historyGrid { 
-    display: grid;
-    grid-template-columns: 45% 10% 45%;
-
-}
-
-.historyGrid > :nth-child(3n+1) { 
-    text-align: right;
-}
-
-.historyGrid > :nth-child(3n+3) { 
-    text-align: left;
-}
-}
-
-
-@media only screen and (max-width: 700px) { 
-.historyGridMobile { 
-    display: grid;
-    grid-template-columns: 30% 70%;
-}
-}
-@media only screen and (min-width: 700px) { 
-    .historyGridMobile { 
-        display: none;
-}
-}
 
 
 

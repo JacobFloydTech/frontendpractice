@@ -22,11 +22,11 @@ export default function Navbar() {
                     <Logo width={80} height={80} />
                 </div>
                 <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden  md:block">
-                    <button>Auctions</button>
-                    <button>Sell</button>
-                    <button>Private Sales</button>
-                    <button>About</button>
-                    <button>Support</button>
+                    {['Auctions', 'Sell', 'Private Sales', 'About', 'Support'].map((e: string, i: number) => {
+                        return (
+                            <Button content={e} key={i} />
+                        )
+                    })}
                     <button className="border-black p-2 rounded-full border-2 hover:border-white hover:bg-black hover:text-white">Sign in</button>
                 </div>
                 <div className="md:hidden">
@@ -43,6 +43,24 @@ export default function Navbar() {
 
     )
 }
+function Button({ content }: { content: string }) {
+    const [hover, setHover] = useState(false);
+    const ref = useRef<any>();
+    useEffect(() => {
+        if (hover) {
+            gsap.to(ref.current, { width: '100%', duration: 0.4, ease: 'sine.inOut' })
+        } else {
+            gsap.to(ref.current, { width: 0, duration: 0.4, ease: 'sine.inOut' })
+        }
+    }, [setHover, hover])
+    return (
+        <div onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} className="inline-flex flex-col">
+            <button className="text-[16px] px-1">{content}</button>
+            <div ref={ref} className="h-[2px] bg-black w-0 mx-auto"></div>
+        </div>
+    )
+}
+
 
 function MobileMenu() {
     return (
