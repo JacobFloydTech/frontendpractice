@@ -59,7 +59,7 @@ function MeetTheTeam() {
 
 function Passion() {
     return (
-        <div className="w-full md:w-5/6 aspect-video mx-auto relative">
+        <div className="w-full md:w-5/6 aspect-video mx-auto relative my-12">
             <div className="bg-opacity-[52%] bg-gray-800 bg-blend-soft-light w-full h-full top-0 left-0 absolute z-30 flex items-center justify-center">
                 <div className="flex flex-col text-white md:w-2/5 w-full mx-2 md:space-y-8 space-y-2">
                     <p className="md:text-5xl text-xl">Turn your passion <br></br> into a career</p>

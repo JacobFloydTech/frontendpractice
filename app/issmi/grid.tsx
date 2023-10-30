@@ -27,11 +27,11 @@ export default function Grid() {
     useEffect(() => {
         gsap.fromTo('.animate', { opacity: 1 }, {
             opacity: 0, scrollTrigger: {
-                trigger: '.textIndicator',
+                trigger: '.animate',
                 markers: false,
                 scrub: true,
-                start: 'top 60%',
-                end: 'top 10%',
+                start: 'top 30%',
+                end: 'top 0%',
 
             }
         })
@@ -74,9 +74,9 @@ export function CarCell({ title, price, src, animate }: { title: string, price: 
     const image = useRef<any>();
     const [hover, setHover] = useState(false);
     useEffect(() => {
-        if (!animate) { return; }
+        if (!animate || !ref.current) { return; }
         gsap.fromTo(image.current, { translateY: '+=120px' }, {
-            translateY: '-=120px', onStart: () => { ref.current.classList.remove('hide') }, scrollTrigger: {
+            translateY: '-=120px', onStart: () => { ref.current?.classList?.remove('hide') }, scrollTrigger: {
                 trigger: ref.current, start: 'top 60%', end: 'top 30%', scrub: true,
             }
         })

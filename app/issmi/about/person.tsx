@@ -19,9 +19,10 @@ export default function Person({ member }: { member: TeamMember }) {
         })
     })
     return (
-        <div ref={ref} className="flex flex-col text-left p-4">
-
-            <img className="md:h-84 object-cover " src={`/issmi/teamMember/${member.src}`} />
+        <div ref={ref} className="flex flex-col text-left px-4  space-y-3">
+            <div className="w-2/3 mx-auto md:w-full aspect-square  ">
+                <img className="h-full w-full object-cover " src={`/issmi/teamMember/${member.src}`} />
+            </div>
             <p className="md:text-3xl text-2xl font-bold">{member.name}</p>
             <p className="text-gray-600 text-xl md:text-2xl font-semibold">{member.position}</p>
             <p className="md:text-lg"><span className="font-bold">Current favroite Car:</span> {member.favouriteCar}</p>
