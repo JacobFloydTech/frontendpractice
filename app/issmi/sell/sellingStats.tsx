@@ -20,17 +20,17 @@ export default function SellingStats() {
     }
     return (
         <div className="md:grid-cols-3 space-y-12 md:space-y-0 grid bg-gray-200 text-center py-12">
-            <div>
-                <p className="text-4xl">${salesNumber} Million</p>
-                <p className="text-lg">in sales to date</p>
+            <div >
+                <p className=" text-5xl">${salesNumber} Million</p>
+                <p className=" text-xl">in sales to date</p>
             </div>
             <div>
-                <p className="text-4xl">6+ million</p>
-                <p className="text-lg">eyeballs on your listing</p>
+                <p className="text-5xl">6+ million</p>
+                <p className="text-xl">eyeballs on your listing</p>
             </div>
             <div>
-                <p className="text-4xl">100+ years</p>
-                <p className="text-lg">of industry leading experience</p>
+                <p className="text-5xl">100+ years</p>
+                <p className="text-xl">of industry leading experience</p>
             </div>
         </div>
     )

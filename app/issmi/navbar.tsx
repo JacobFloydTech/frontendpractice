@@ -23,7 +23,7 @@ export default function Navbar() {
                     <Logo width={80} height={80} />
                 </div>
                 <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden  md:block">
-                    {['auctions', 'Sell', 'Private Sales', 'about', 'Support'].map((e: string, i: number) => {
+                    {['auctions', 'sell', 'Private Sales', 'about', 'Support'].map((e: string, i: number) => {
                         return (
                             <Button content={e} key={i} />
                         )

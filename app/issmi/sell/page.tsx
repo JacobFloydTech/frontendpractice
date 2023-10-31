@@ -45,10 +45,10 @@ function Intro() {
 function WhySellWithUs() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-sell w-4/5 mx-auto py-4">
-            <div className="relative">
-                <img className="h-full object-cover top-0 absolute left-0 w-full px-12" src="/issmi/sellingPage/sellwithus.jpg"></img>
+            <div id='sellImage' className="relative md:aspect-auto h-48  aspect-[3/2] md:h-full">
+                <img className="h-full object-cover  top-0 absolute left-0 w-full md:px-4 rounded-xl md:rounded-sm" src="/issmi/sellingPage/sellwithus.jpg"></img>
             </div>
-            <div className="flex flex-col justify-between space-y-8 leading-loose">
+            <div className="flex flex-col justify-between space-y-8 leading-loose text-center md:text-left pl-8">
                 <p className="text-6xl">Why sell with us?</p>
                 <p className="font-bold text-3xl">Get the most with your listing.</p>
                 <p>Our platform empowers the global collector market to establish optimum pricing for your vehicle through real time supply and demand. The process is open and transparant, free from hidden reserves or market distortions.</p>

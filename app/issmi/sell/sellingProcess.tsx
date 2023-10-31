@@ -15,7 +15,7 @@ export default function SellingProcess() {
 
     function animate(place: number) {
         const height = ref.current.children[0].clientHeight;
-        gsap.to(ref.current, { translateY: `-${height * place}px`, duration: 2, ease: 'power4.out' })
+        gsap.to(document.getElementById('sellingProccess'), { scrollTo: height * place, duration: 2, ease: 'power4.out' })
     }
 
     function handleScroll() {
@@ -23,16 +23,19 @@ export default function SellingProcess() {
         const scrollTop = el?.scrollTop
         const height = ref.current.children[0].clientHeight;
         if (!scrollTop) { return }
-        if (scrollTop <= height) {
-            setCurrentSlide(1);
-        } else if (scrollTop <= height * 2) {
-            setCurrentSlide(2);
-        } else if (scrollTop <= height * 3) {
-            setCurrentSlide(3);
-        } else if (scrollTop < height * 4) {
-            setCurrentSlide(4);
-        } else {
+
+
+
+        if (scrollTop >= height * 4) {
             setCurrentSlide(5)
+        } else if (scrollTop >= height * 3) {
+            setCurrentSlide(4)
+        } else if (scrollTop >= height * 2) {
+            setCurrentSlide(3)
+        } else if (scrollTop >= height) {
+            setCurrentSlide(2)
+        } else {
+            setCurrentSlide(1)
         }
     }
 
@@ -91,15 +94,15 @@ export default function SellingProcess() {
 
 export function SellForm() {
     return (
-        <div className="grid grid-cols-3 w-2/3 mx-auto ">
-            <div className="flex flex-col justify-center">
-                <p>Sell with us </p>
-                <p>Submit your car, speak with a specialist</p>
+        <div className="grid grid-cols-3 w-3/4 mx-auto ">
+            <div className="flex flex-col text-left">
+                <p className="text-6xl my-4">Sell with us </p>
+                <p className="text-lg my-4">Submit your car, speak with a specialist</p>
             </div>
-            <div className="grid grid-cols-2 bg-white p-4 text-lg col-span-2 gap-4">
+            <div className="grid grid-cols-2 ml-12 bg-white p-4 text-lg col-span-2 gap-4">
                 <div className="flex flex-col">
                     <p className="text-3xl">Make<span className="text-red-500">*</span></p>
-                    <select >
+                    <select className="bg-white p-2 border-gray-200 border-2 rounded-xl h-12 " >
                         <option value="none" selected disabled hidden>Select Make</option>
                         {['Mercedes', 'BMW', 'Volvo', 'Mazda', 'Ferrari', 'Audi'].map((e, i) => {
                             return <option key={i} value={e}>{e}</option>
@@ -108,7 +111,7 @@ export function SellForm() {
                 </div>
                 <div className="flex flex-col">
                     <p className="text-3xl">Model<span className="text-red-500">*</span></p>
-                    <select >
+                    <select className="bg-white p-2 border-gray-200 border-2 rounded-xl h-12 ">
                         <option value="none" selected disabled hidden>Select a Model</option>
                         {['Mercedes', 'BMW', 'Volvo', 'Mazda', 'Ferrari', 'Audi'].map((e, i) => {
                             return <option key={i} value={e}>{e}</option>
@@ -117,11 +120,11 @@ export function SellForm() {
                 </div>
                 <div className="flex flex-col">
                     <p className="text-3xl">Year <span className="text-red-500"> *</span></p>
-                    <input placeholder="Input year" type="number"></input>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" placeholder="Input year" type="number"></input>
                 </div>
                 <div className="flex flex-col">
                     <p className="text-3xl">Location<span className="text-red-500"> *</span></p>
-                    <select >
+                    <select className="bg-white p-2 border-gray-200 border-2 rounded-xl h-12 ">
                         <option value="none" selected disabled hidden>Select Country</option>
                         {["New Zealand", "Australia", "USA", "England", "France", "Japan", "China", "Canada", "India"].map((e, i) => {
                             return <option key={i} value={e}>{e}</option>
@@ -130,17 +133,49 @@ export function SellForm() {
                 </div>
                 <div className="flex flex-col">
                     <p className="text-3xl">Mileage <span className="text-red-500"> *</span></p>
-                    <input placeholder="Input Mileage" type="number"></input>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" placeholder="Input Mileage" type="number"></input>
                 </div>
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center mt-8">
 
-                    <select >
+                    <select className="bg-white p-2 border-gray-200 border-2 rounded-xl h-12 ">
 
                         {["Miles", "Kilometers"].map((e, i) => {
                             return <option key={i} value={e}>{e}</option>
                         })}
                     </select>
                 </div>
+                <div className="flex flex-col col-span-2">
+                    <p>Vehicle Description</p>
+                    <textarea className="border-gray-200 border-2 rounded-xl h-40"></textarea>
+                </div>
+                <div className="flex flex-col">
+                    <p>Desired Vehicle Price USD</p>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" type="number"></input>
+                </div>
+                <div className="flex flex-col">
+                    <p>Vehicle Identification Number</p>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" ></input>
+                </div>
+                <div className="flex flex-col">
+                    <p>First Name</p>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" ></input>
+                </div>
+                <div className="flex flex-col">
+                    <p>Last Name</p>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" ></input>
+                </div>
+                <div className="flex flex-col">
+                    <p>Email</p>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" ></input>
+                </div>
+                <div className="flex flex-col">
+                    <p>Phone Number</p>
+                    <input className="border-gray-200 border-2 rounded-xl h-12" ></input>
+                </div>
+                <div className="col-span-2 flex justify-end">
+                    <button className="w-1/4 border-black border-2 rounded-full"> Submit Vehicle</button>
+                </div>
+
             </div>
         </div>
     )
