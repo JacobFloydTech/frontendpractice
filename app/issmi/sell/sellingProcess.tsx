@@ -1,25 +1,66 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { BaseSyntheticEvent, useEffect, useRef, useState } from "react"
 import gsap from "gsap";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
 
 export default function SellingProcess() {
     const ref = useRef<any>();
     const [currentSlide, setCurrentSlide] = useState(1);
 
     useEffect(() => {
-        document.getElementById('sellingProccess')?.addEventListener('scroll', (e) => { console.log(e); })
+        document.getElementById('sellingProccess')?.addEventListener('scrollend', (e) => { console.log(e); })
     }, [])
 
     function animate(place: number) {
         const height = ref.current.children[0].clientHeight;
         gsap.to(ref.current, { translateY: `-${height * place}px`, duration: 2, ease: 'power4.out' })
     }
+
+    function handleScroll() {
+        const el = document.getElementById('sellingProccess')
+        const scrollTop = el?.scrollTop
+        const height = ref.current.children[0].clientHeight;
+        if (!scrollTop) { return }
+        if (scrollTop <= height) {
+            setCurrentSlide(1);
+        } else if (scrollTop <= height * 2) {
+            setCurrentSlide(2);
+        } else if (scrollTop <= height * 3) {
+            setCurrentSlide(3);
+        } else if (scrollTop < height * 4) {
+            setCurrentSlide(4);
+        } else {
+            setCurrentSlide(5)
+        }
+    }
+
+    function scrollLock() {
+        const el = document.getElementById('sellingProccess')
+        const scrollTop = el?.scrollTop
+        const height = ref.current.children[0].clientHeight;
+        if (!scrollTop) { return }
+
+
+        if (scrollTop <= height) {
+            gsap.to(el, { scrollTo: 0 })
+        } else if (scrollTop <= height * 2) {
+            gsap.to(el, { scrollTo: height })
+        } else if (scrollTop <= height * 3) {
+            gsap.to(el, { scrollTo: height * 2 })
+        } else if (scrollTop < height * 4) {
+            gsap.to(el, { scrollTo: height * 4 })
+        } else {
+            gsap.to(el, { scrollTo: height * 5 })
+        }
+
+    }
     return (
-        <div id='sellingProccess' className="flex flex-col bg-gray-200 items-center justify-center py-12">
+        <div className="flex flex-col bg-gray-200 items-center justify-center py-12 sellingProccess">
             <p className="text-4xl">Our Selling Process</p>
-            <div className="w-full md:w-2/3 px-4 md:grid-cols-sellingProccess grid row-start-2 md:row-start-auto ">
-                <div className="flex md:flex-col">
+            <div className="w-full md:w-2/3 px-4 md:grid-cols-sellingProccess grid row-start-2 md:row-start-auto sellingProccess">
+                <div className="flex md:flex-col ">
 
                     {[1, 2, 3, 4, 5].map((e, i) => {
                         return (
@@ -27,18 +68,18 @@ export default function SellingProcess() {
                         )
                     })}
                 </div>
-                <div className="w-full h-full flex flex-col items-center justify-center row-start-1 md:row-start-auto">
-                    <div className="overflow-hidden">
-                        <div ref={ref} className="grid grid-cols-2 h-72  ">
-                            <p className="h-72 text-3xl sellingTagLine">Submit to sell</p>
+                <div className="w-full h-full flex flex-col items-center justify-center row-start-1 md:row-start-auto sellingProccess" >
+                    <div onScroll={() => handleScroll()} id='sellingProccess' onMouseLeave={() => { scrollLock() }} className="overflow-y-auto sellingProccess" style={{ scrollbarWidth: 'none' }}>
+                        <div ref={ref} className="grid grid-cols-2 h-72 ">
+                            <p className="h-72 text-[28px] sellingTagLine">Submit to sell</p>
                             <p className="h-72 text-sm md:text-lg  sellingDescriptionParagraph"> Follow submission of your extraordinary machine, we'll provide a detailed value range, allowing you to set the best asking price and net the most</p>
-                            <p className="h-72 text-3xl sellingTagLine">Consign & Collect</p>
+                            <p className="h-72 text-[28px] sellingTagLine">Consign & Collect</p>
                             <p className="h-72 text-sm md:text-lg sellingDescriptionParagraph"> After you've set an asking price & sign our consignment agreement, we'll take it from there, arranging vehicle pick up and prep</p>
-                            <p className="h-72 text-3xl sellingTagLine">Detail & Describe</p>
+                            <p className="h-72 text-[28px] sellingTagLine">Detail & Describe</p>
                             <p className="h-72 text-sm md:text-lg sellingDescriptionParagraph"> The process is entirely hands-free from this point – we’ll arrange pick-up and preparation, including detailing, photography, inspection, and description. Your car will go live on our site with a comprehensive listing sharing your vehicle in the best possible light.</p>
-                            <p className="h-72 text-3xl sellingTagLine">Review & Reply</p>
+                            <p className="h-72 text-[28px] sellingTagLine">Review & Reply</p>
                             <p className="h-72 text-sm md:text-lg sellingDescriptionParagraph"> Once your listing goes live, it will be highlighted to the ISSIMI community and a broader global audience. As an "Open Auction", potential buyers will offer starting bids at or below your asking price for you to accept or reject.</p>
-                            <p className="h-72 text-3xl sellingTagLine">Boost your Hammer Profile</p>
+                            <p className="h-72 text-[28px] sellingTagLine">Boost your Hammer Profile</p>
                             <p className="h-72 text-sm md:text-lg sellingDescriptionParagraph"> Should you choose to accept a starting bid offer, the offer will then become the starting price for a 72-hour, no-reserve auction open to everyone to ensure you get the highest possible hammer price for your listing.</p>
                         </div>
                     </div>
