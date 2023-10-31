@@ -29,7 +29,8 @@ html, body {
     width: auto;
 }
 .sellingTagLine { 
-    font: bold;
+    font-weight: 850;
+    color: green;
     display: flex;
     text-align: left;
     justify-content: center;

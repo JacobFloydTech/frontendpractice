@@ -19,7 +19,7 @@ export default function SellingStats() {
         }, 100);
     }
     return (
-        <div className="grid-cols-3 grid bg-gray-200 text-center py-12">
+        <div className="md:grid-cols-3 space-y-12 md:space-y-0 grid bg-gray-200 text-center py-12">
             <div>
                 <p className="text-4xl">${salesNumber} Million</p>
                 <p className="text-lg">in sales to date</p>

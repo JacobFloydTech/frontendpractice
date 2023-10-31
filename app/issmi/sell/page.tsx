@@ -1,14 +1,18 @@
-import SellingProcess from "./sellingProcess"
+import { StayInTheLoop } from "../whatWeDo"
+import SellingProcess, { SellForm } from "./sellingProcess"
 import SellingStats from "./sellingStats"
 
 export default function SellPage() {
     return (
-        <div className="flex w-auto h-auto flex-col mt-24 bg-white">
+        <div className="flex w-auto h-auto flex-col mt-20 bg-white">
             <Header />
             <Intro />
             <SellingStats />
             <WhySellWithUs />
             <SellingProcess />
+            <SellPreminum />
+            <SellForm />
+            <StayInTheLoop />
         </div>
     )
 }
@@ -27,7 +31,7 @@ function Header() {
 function Intro() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-5  my-12 ">
-            <div className="flex flex-col text-left  md:px-12 py-4 col-span-2">
+            <div className="flex flex-col text-left mx-4 md:px-12 py-4 col-span-2">
                 <p className="text-4xl"> Expert Management of Your Extraordinary Machines</p>
                 <p className="leading-relaxed my-12 text-lg pr-12">Sell your car with ease and confidence, knowing it's in the hands of people you can trust. We offer a full-service selling experience, from pickup to delivery, and our team of experts will handle the entire process for you. With a focus on transparency and communication, we keep you informed every step of the way to ensure a smooth and hassle-free sale.</p>
             </div>
@@ -53,6 +57,20 @@ function WhySellWithUs() {
                 <p className="font-bold text-3xl">We make it easy.</p>
                 <p>When you choose to sell with us, our white-glove service will take care of everything. We collect your vehicle, inspect it, create high-quality content, and prepare it for auction.</p>
             </div>
+        </div>
+    )
+}
+
+function SellPreminum() {
+    return (
+        <div className="w-1/2 rounded-2xl py-12 text-white flex flex-col mx-auto items-center h-auto my-12 bg-gradient-to-tr from-[#4B8A68] to-[#2E6547]">
+
+            <p className="text-3xl">Our Seller Preminum:</p>
+            <div className="flex">
+                <span className="text-9xl font-bold">5</span>
+                <span>%</span>
+            </div>
+            <p className="w-1/2 text-lg text-left">We charge a no-surprise, transparent premium for each listing, regardless of the vehicle type or price point.</p>
         </div>
     )
 }
