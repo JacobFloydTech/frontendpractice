@@ -1,25 +1,50 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SellingStats() {
     let [salesNumber, setSalesNumber] = useState(0);
+    let [years, setYears] = useState(0);
+    let observing = false;
+    const ref = useRef<any>();
     useEffect(() => {
-        animate(salesNumber, 165);
+
+        main();
+        let observer = new IntersectionObserver((entries, opts) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    observing = true;
+                    main();
+                } else {
+
+                    observing = false;
+                }
+            })
+        });
+        observer.observe(ref.current)
+
+
     }, [])
 
-    function animate(salesNumber: number, limit: number) {
-        if (salesNumber >= limit) {
+    function main() {
+        setSalesNumber(0);
+        setYears(0);
+        animate(salesNumber, 165, 0, setSalesNumber);
+        animate(years, 100, 0, setYears);
+    }
+
+    function animate(number: number, limit: number, iterations: number, setterFunction: Function) {
+        if (number >= limit || !observing) {
             return;
         }
 
-        setSalesNumber(salesNumber += 1);
+        setterFunction(number += 1);
         setTimeout(() => {
-            animate(salesNumber += 1, limit)
-        }, 100);
+            animate(number += 1, limit, iterations += 1, setterFunction)
+        }, iterations * 2);
     }
     return (
-        <div className="md:grid-cols-3 space-y-12 md:space-y-0 grid bg-gray-200 text-center py-12">
+        <div ref={ref} className="md:grid-cols-3 space-y-12 md:space-y-0 grid bg-gray-200 text-center py-12">
             <div >
                 <p className=" text-5xl">${salesNumber} Million</p>
                 <p className=" text-xl">in sales to date</p>
@@ -29,7 +54,7 @@ export default function SellingStats() {
                 <p className="text-xl">eyeballs on your listing</p>
             </div>
             <div>
-                <p className="text-5xl">100+ years</p>
+                <p className="text-5xl">{years}+ years</p>
                 <p className="text-xl">of industry leading experience</p>
             </div>
         </div>
