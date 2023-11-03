@@ -23,7 +23,7 @@ export default function Navbar() {
                     <Logo width={80} height={80} />
                 </div>
                 <div className="w-auto h-auto text-sm  px-2 space-x-7 hidden  md:block">
-                    {['auctions', 'sell', 'Private Sales', 'about', 'Support'].map((e: string, i: number) => {
+                    {['auctions', 'sell', 'private Sales', 'about', 'support'].map((e: string, i: number) => {
                         return (
                             <Button content={e} key={i} />
                         )
@@ -57,7 +57,7 @@ function Button({ content }: { content: string }) {
     }, [setHover, hover])
     return (
         <div onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} className="inline-flex flex-col">
-            <button onClick={() => { router.push(`/issmi/${content}`) }} className="text-[16px] px-1 capitalize">{content}</button>
+            <button onClick={() => { router.push(`/issmi/${content.replace(" ", "-")}`) }} className="text-[16px] px-1 capitalize">{content}</button>
             <div ref={ref} className="h-[2px] bg-black w-0 mx-auto"></div>
         </div>
     )

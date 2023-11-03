@@ -21,6 +21,7 @@ const config: Config = {
         'history-small': '10% 90%',
         'sell': '30% 70%',
         'sellingProccess': '10% 90%',
+        'privateSalesGrid':  '35% 21% 21% 21%'
       }
     },
   },
