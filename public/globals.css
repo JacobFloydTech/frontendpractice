@@ -37,6 +37,13 @@ html, body {
     padding: 10px;
 }
 
+.privateSalesGrid { 
+    display: grid;
+    grid-template-columns: 54% 18% 18% 18%;
+}
+
+
+
 .sellingDescriptionParagraph { 
     display: flex;
     align-items: center;
