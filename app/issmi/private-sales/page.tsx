@@ -1,4 +1,4 @@
-
+import PrivateSalesForm from "./form"
 
 export default function PrivateSalesPage() {
     return (
@@ -15,6 +15,16 @@ export default function PrivateSalesPage() {
                     <p>Becoming a Private Sales member means more than just access to exclusive cars. Our full-service, white-glove approach ensures that every aspect of the transaction process is expertly managed. You'll get direct access to our team to take care of everything from complex global vehicle searches to collection management and service.</p>
                 </div>
                 <Grid />
+                <div className="mt-12 mb-24 space-y-4 w-1/2 mx-auto flex flex-col text-left">
+                    <p className="font-bold text-3xl mt-4 mb-6">Membership is Ideal for the Following:</p>
+                    <ul className="list-disc pl-4 space-y-2">
+                        <li>Established collectors with a large collection</li>
+                        <li>Enthusiasts seeking exclusive access to off-market cars</li>
+                        <li>Individuals who desire invitations to exclusive events</li>
+                        <li>Sellers who value utmost privacy in selling their unique cars</li>
+                    </ul>
+                </div>
+                <PrivateSalesForm />
             </div>
 
         </div>
@@ -23,10 +33,10 @@ export default function PrivateSalesPage() {
 
 function Grid() {
     return (
-        <div className="privateSalesGrid w-1/2 gap-y-4">
-            <p className="font-semibold col-start-2 text-center text-gray-400">View all cars</p>
-            <p className="font-semibold text-center">Registered</p>
-            <p className="font-semibold text-center text-[#987404]">Private Sales Member</p>
+        <div className="privateSalesGrid w-1/2 gap-y-[12px] text-sm">
+            <p className="text-base font-semibold col-start-2 text-center text-gray-400">View all cars</p>
+            <p className="text-base font-semibold text-center">Registered</p>
+            <p className="text-base font-semibold text-center text-[#987404]">Private Sales Member</p>
             <BorderBottom />
             <p>View all cars</p>
             <SVGTick color={'#FFFFFF'} />
