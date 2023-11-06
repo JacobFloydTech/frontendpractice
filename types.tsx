@@ -5,6 +5,11 @@ export type Car = {
     redirect: string;
 }
 
+export type Question = {
+    question: string;
+    answer: string;
+}
+
 export type Listing = {
     src: string;
     year: string;
