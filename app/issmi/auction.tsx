@@ -17,7 +17,7 @@ export default function Auction() {
     return (
         <div ref={ref} className="w-full h-auto my-12 flex flex-col items-center">
             <p className="text-center md:text-6xl text-2xl mb-4">How do our auctions work?</p>
-            <img src="/cars/auctions.svg"></img>
+            <img className="2xl:w-2/3" src="/cars/auctions.svg"></img>
         </div>
     )
 }

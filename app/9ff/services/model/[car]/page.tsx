@@ -137,13 +137,14 @@ export default function CarModel({ params: { car } }: { params: { car: string } 
     let [index, setIndex] = useState<number>(getIndex(currentCar))
 
     return (
-        <div className="bg-stone-200 w-auto">
-            <div className="mx-4 overflow-hidden max-h-[650px]">
-                <img className={currentCar.id == '993' ? "-translate-y-36" : ""} src={`/9ff/services/models/${currentCar.id}.jpg`}></img>
+        <div className="bg-stone-200 w-full md:w-3/4 mx-auto mt-32 pt-4">
+            <div id='img' className="max-h-[650px] overflow-hidden m-4 hidden md:block">
+                <img className={"w-full h-full object-cover " + (currentCar.id == '993' ? " -translate-y-56" : "")} src={`/9ff/services/models/${currentCar.id}.jpg`}></img>
             </div>
-            <div className="w-auto h-auto py-4 mt-4 flex flex-col items-center justify-center bg-white mx-4">
+            <img className="md:hidden p-4" src={`/9ff/services/models/${currentCar.id}.jpg`}></img>
+            <div className="w-auto h-auto py-4  flex flex-col items-center justify-center bg-white mx-4">
                 <p className="bg-stone-600 p-2 z-30 text-3xl">{currentCar.generationName}</p>
-                <p className="border-stone-600 p-4 border-2 -translate-y-4 text-4xl">Performance Overview</p>
+                <p className="border-stone-600 p-4 border-2 -translate-y-4 text-4xl mx-2">Performance Overview</p>
             </div>
             {
                 currentCar.markGenerations ? currentCar.markGenerations.map((car, i) => {
@@ -162,7 +163,7 @@ export default function CarModel({ params: { car } }: { params: { car: string } 
 
 function Footer() {
     return (
-        <div className="grid grid-cols-2 m-4 bg-stone-200">
+        <div className="grid gap-y-2 md:grid-cols-2 m-4 bg-stone-200">
             <img src="/9ff/services/9ffservicesblack.jpg"></img>
             <div className="w-full h-auto bg-white flex flex-col py-[8%] justify-around px-8">
                 <p className="uppercase text-3xl font-semibold">9ff tuning parts</p>
@@ -186,7 +187,7 @@ function CarInfo({ currentCar }: { currentCar: carServiceDetails }) {
     return (
         <div className="flex flex-col justify-center items-center m-4  bg-stone-200">
 
-            <div className="flex flex-col w-full h-auto bg-white py-8 px-16 mx-4">
+            <div className="flex flex-col w-full h-auto bg-white py-8 px-2 text-sm md:px-16 mx-4">
                 <p className="text-3xl font-semibold">{currentCar.generationName}</p>
                 <p className="pt-2 ">
                     {currentCar.productionStart && <span>From '{getFormattedDate(currentCar.productionStart)}</span>}
@@ -194,7 +195,7 @@ function CarInfo({ currentCar }: { currentCar: carServiceDetails }) {
                 </p>
                 <div className="my-8 h-[4px] bg-black w-[10%]"></div>
                 <p className="italic text-2xl">We offer the following services for these models:</p>
-                <div className="grid grid-cols-2 my-8">
+                <div className="grid md:grid-cols-2 my-8">
                     <div className="flex text-2xl font-bold flex-col">
                         <p>Aerodynamics</p>
                         <p>Chassis technology</p>
@@ -205,7 +206,7 @@ function CarInfo({ currentCar }: { currentCar: carServiceDetails }) {
                         <p>Clutch kit</p>
                         <p>Interior upgrades</p>
                     </div>
-                    <div className="flex text-2xl flex-col space-y-2">
+                    <div className=" flex flex-col space-y-2 my-12 md:my-0  md:text-lg 2xl:text-2xl">
                         <p className="font-semibold">Engine performance/conversions/performance upgrades</p>
                         <p className="font-semibold uppercase">Driving performance</p>
                         {currentCar.nautralEngineStats && <p className="italic text-lg ">Naturally aspirated engines        {currentCar.nautralEngineStats.lowLimitEngineCapacity.toFixed(1)} - {currentCar.nautralEngineStats.highLimitEngineCapacity.toFixed(1)} liters <span className="not-italic font-semibold">|</span> {currentCar.nautralEngineStats.lowLimitHorsePower} - {currentCar.nautralEngineStats.highLimitHorsePower} HP</p>}

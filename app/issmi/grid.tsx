@@ -39,8 +39,8 @@ export default function Grid() {
 
     return (
         <div id="main" className=" mb-20 ">
-            <div className="fixed text-5xl font-semibold text-black hidden md:block  h-1/2 -mt-36 -z-10 animate">
-                <p id='title' className="mx-auto w-2/3 text-center mt-2 z-40 ">Buy & Sell the Most Extraordinary Machines in the World</p>
+            <div className="fixed text-5xl font-semibold text-black hidden md:block  h-1/2 -mt-36 -z-10 animate w-full">
+                <p id='title' className="mx-auto w-1/2  text-center mt-2 z-40 ">Buy & Sell the Most Extraordinary Machines in the World</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 w-full h-full mt-[25%] px-4 gap-6 my-5 gridItems">
                 {cars.map(({ title, price, src, animate }, index: number) => {

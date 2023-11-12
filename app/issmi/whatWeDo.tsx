@@ -48,15 +48,15 @@ export function StayInTheLoop() {
         })
     }, [])
     return (
-        <div className="w-full h-full flex flex-col md:mt-24 mt-8 items-center ">
+        <div className="w-full h-full flex flex-col md:mt-24 mt-8 items-center my-4 bg-gray-200 p-4">
             <p ref={ref} className="text-5xl mb-8 w-2/3 mx-auto text-center">Stay in the loop</p>
-            <div className="flex flex-col md:flex-row h-auto w-full      ">
-                <div className="md:w-1/2 h-full w-full flex relative    ">
+            <div className="flex flex-col md:flex-row h-auto w-full  items-center justify-center     ">
+                <div className="2xl:w-1/3 md:w-1/2 h-full w-full flex relative    ">
                     <JoinCommunityText />
                     <GreenSVG />
                     <HorizontalGreenSVG />
                 </div>
-                <div className="md:w-1/2 h-full w-full relative flex">
+                <div className="2xl:w-1/3 md:w-1/2 h-full w-full relative flex">
                     <NewsletterText />
                     <WhiteSVG />
                     <HorizontalWhiteSVG />
@@ -79,7 +79,7 @@ function NewsletterText() {
         })
     })
     return (
-        <div ref={ref} className="w-2/3 h-2/3 md:px-8 left-1/2 transform -translate-x-1/2 md:left-[10%] md:translate-x-0 absolute md:top-[10%] -top-[4%] z-20 max-w-[220px]  md:max-w-none">
+        <div ref={ref} className=" w-2/3 h-2/3 md:px-8 left-1/2 transform -translate-x-1/2 md:left-[10%] md:translate-x-0 absolute md:top-[10%] -top-[4%] z-20 max-w-[220px]  md:max-w-none">
             <p className="xl:text-2xl md:text-xl sm:text-sm font-semibold text-[#4C8A63]">Join our Newsletter</p>
             <p className="xl:text-xl text-sm md:text-lg md:leading-8">Join our mailing list to receive priority access on the latest auctions, exclusive content, and special events.</p>
             <button className=" font-semibold flex items-center md:py-14">

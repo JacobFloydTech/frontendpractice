@@ -10,12 +10,12 @@ import ImageChanger from "./imageSlider";
 export default function PorscheNavbar() {
     const router = useRouter();
     return (
-        <div className="flex fixed p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center justify-around  z-50">
-            <div className="flex items-center ">
+        <div className="flex fixed p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center md:justify-around  z-50">
+            <div className="flex items-center hidden md:flex">
                 <img src={'/9ff/logo.png'}></img>
                 <img className="h-1/2 mx-4" src="/9ff/title.png"></img>
             </div>
-            <div className="w-auto  flex justify-around space-x-6 text-lg font-semibold">
+            <div className="w-full md:w-1/2  flex justify-around space-x-[4px] md:space-x-4 text-[10px] md:text-lg font-semibold">
                 <button onClick={() => { router.push('/9ff/') }}>Home</button>
                 <button onClick={() => { router.push('/9ff/services') }}>Services</button>
                 <button onClick={() => { router.push('/9ff/supercars') }}>Supercars</button>
