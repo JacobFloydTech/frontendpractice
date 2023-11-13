@@ -5,6 +5,7 @@ import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react"
 import NavigationFooterServices from "../../navigationFooter";
+import { Footer } from "@/app/9ff/homePage";
 
 const carsServiceDetails: carServiceDetails[] = [
     {
@@ -155,13 +156,14 @@ export default function CarModel({ params: { car } }: { params: { car: string } 
                 }) : <CarInfo currentCar={currentCar} />
             }
 
-            <Footer />
+            <ServicesFooter />
             <NavigationFooterServices index={index} cars={carsServiceDetails} />
+            <Footer/>
         </div >
     )
 }
 
-function Footer() {
+function ServicesFooter() {
     return (
         <div className="grid gap-y-2 md:grid-cols-2 m-4 bg-stone-200">
             <img src="/9ff/services/9ffservicesblack.jpg"></img>

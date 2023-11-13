@@ -1,3 +1,20 @@
+export type SupercarData = { 
+    name: string;
+    tag: string;
+    vehicle: string;
+    vehicleUpgrades: string[];
+    engineUpgrades: string[];
+    transmissionUpgrades: string[];
+    wheelUpgrades: string[];
+    chassisUpgrades: string[];
+    performanceTimes: string[];
+    description: string[];
+    firstImage: string;
+    secondImage: string;
+    src: string;
+    shortName: string;
+}
+
 export type Car = {
     src: string;
     name: string;

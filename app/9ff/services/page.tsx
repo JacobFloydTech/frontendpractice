@@ -1,3 +1,4 @@
+import { Footer } from "../homePage"
 import ImageChanger from "../imageSlider"
 import ServiceOptions from "./menu"
 
@@ -37,6 +38,7 @@ export default function ServiceHome() {
                     </div>
                 </div>
                 <Grid />
+                <Footer/>
             </div>
 
         </div>
