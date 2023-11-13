@@ -9,11 +9,11 @@ export default function ServiceOptions() {
         <div>
             <div className="flex flex-col">
                 <p>Choose your model</p>
-                <div className="flex space-x-7 text-lg">
-                    <button onClick={() => { router.push('/9ff/services/model/930') }} >11 & 930</button>
+                <div className="flex space-x-4 md:space-x-7 md:justify-around text-lg my-4 md:h-12">
+                    <button className="border-gray-200 rounded-xl  border-2 md:border-none  p-1" onClick={() => { router.push('/9ff/services/model/930') }} ><span className="hidden md:block">11 &</span>930</button>
                     {options.map((g, i) => {
                         return (
-                            <button key={i} onClick={() => { router.push(`/9ff/services/model/${g}`) }}>{g}</button>
+                            <button className="border-gray-200 rounded-xl  border-2 md:border-none p-1" key={i} onClick={() => { router.push(`/9ff/services/model/${g}`) }}>{g}</button>
                         )
                     })}
                 </div>
