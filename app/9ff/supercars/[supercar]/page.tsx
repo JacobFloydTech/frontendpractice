@@ -26,13 +26,13 @@ export default function Home({params: { supercar}}: {params: {supercar: string}}
     const result = SuperCarData.filter((e) => e.src == supercar)[0];
     if (!result) { return redirect('/9ff/supercars')}
     return ( 
-        <div className="md:w-3/4 mx-auto flex flex-col space-y-4 mt-32 mb-4">
+        <div className="md:w-3/4 mx-auto flex flex-col space-y-4 mt-32 mb-4 h-auto">
             <div className="aspect-video max-h-48 md:max-h-70 2xl:max-h-[550px]">
             <img ref={firstImage} className=" w-full h-full opacity-0 object-cover" src={result.firstImage}></img>
             </div>
             <div className="w-full h-auto py-4  flex flex-col items-center justify-center bg-white">
                 <p className="bg-[#C7C1A1] p-2 z-30 text-xl">9FF</p>
-                <p className="border-[#C7C1A1] p-4 border-2 -translate-y-4  text-2xl w-4/5 md:w-2/3 text-center">{result.shortName}</p>
+                <p className="border-[#C7C1A1] p-4 border-2 -translate-y-4  text-2xl w-4/5 md:w-2/3 text-center font-bold">{result.shortName}</p>
             </div>
             <div className="grid md:grid-cols-2 p-8 bg-white  md:p-12 md:pl-14 rounded-sm">
                 <div className="flex flex-col row-start-2 md:row-start-auto">
@@ -87,7 +87,7 @@ export default function Home({params: { supercar}}: {params: {supercar: string}}
             <div className=" max-h-48 md:max-h-70 2xl:max-h-[650px] overflow-hidden">
             <img className=" w-full h-full object-cover " src={result.secondImage}></img>
             </div>
-            <Footer/>
+       
         </div>
     )
 }

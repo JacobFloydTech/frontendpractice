@@ -152,21 +152,58 @@ export function GridContent() {
         </div>
     )
 }
-export function Footer() {
+export function Footer({text}: { text?: string}) {
     return (
-        <div className="w-full h-auto bg-[#211F1F] text-white  py-4">
-            <div className="bg-[#211F1F] text-3xl mx-4 flex flex-col justify-center items-center text-center gap-y-2 my-4 p-4">
-                <p>Are you interested in a vehicle from 9ff?</p>
-                <p className="font-bold">We are here for you</p>
-                <button className="bg-[#444141] border-white border-2 shadow-2xl p-2 text-white mb-4">Contact</button>
+        <div>
+            <div className="w-full h-auto bg-[#211F1F] text-white py-4">
+                <div className="bg-[#211F1F] text-3xl mx-4 flex flex-col justify-center items-center text-center gap-y-2 my-4 p-4">
+                    {text ? <p>{text}</p> : <p>Are you interested in a vehicle from 9ff?</p> } 
+                    <p className="font-bold my-4">We are here for you</p>
+                    <button className="bg-[#444141] border-white border-2 shadow-2xl p-2 text-white mb-4">Contact</button>
+                </div>
+                <div className="flex justify-center gap-x-4 h-24 w-full items-center pb-4">
+                    <Cart />
+                    <Facebook />
+                    <Instagram />
+                    <Email />
+                </div>
             </div>
-            <div className="flex justify-center gap-x-3 h-24 w-full items-center pb-4">
-                <Cart />
-                <Facebook />
-                <Instagram />
-                <Email />
+            <div className="flex flex-col w-full h-auto">
+                <div className="md:w-2/3 w-full grid grid-cols-2 md:grid-cols-3 mx-auto mt-5 gap-4 font-bold md:text-lg">
+                    <button>Home</button>
+                    <button>Shop</button>
+                    <button>Contact</button>
+                    <button>Services</button>
+                    <button>About 9FF</button>
+                    <button>Imprint</button>
+                    <button>Supercars</button>
+                    <button>News</button>
+                    <button>Data Protection</button>
+                </div>
+              
+                <GoToTop/>
+                <div className="w-full mx-auto h-5 rounded-full -translate-y-4 bg-black">
+             
+                </div>
             </div>
         </div>
+    )
+}
+
+function GoToTop() { 
+
+    return ( 
+        <button className="h-32 mx-auto  w-32" onClick={() => {    
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })}}>
+            <svg className="w-full h-full" viewBox="50 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="150" cy="100" r='40'/>
+                <polygon points="150 100, 100 200, 190 200"></polygon>
+                <polygon fill="white" points="130 120, 150 80, 170 120" stroke="white"></polygon>
+            </svg>
+        </button>
     )
 }
 

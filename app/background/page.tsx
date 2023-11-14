@@ -44,7 +44,7 @@ function CustomCamera() {
       const differenceX = (width/2-clientX)/(width/2);
       const differenceY = (height/2-clientY)/(height/2);
 
-      let movement = 5;
+      let movement = 1.5;
       setOffset({x: movement*differenceX*-1, y: movement*differenceY})
       console.log(offset);
     })
@@ -66,7 +66,7 @@ function Light() {
   return ( 
     <group>
  
-      <ambientLight intensity={0.1}/>
+      <ambientLight intensity={0.3}/>
       <directionalLight ref={ref} castShadow position={[0, 20, 5]} color={'black'} />
     </group>
   )
