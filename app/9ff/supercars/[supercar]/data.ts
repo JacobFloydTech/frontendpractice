@@ -92,5 +92,102 @@ export const SuperCarData: SupercarData[] = [
         "Front axle with adjustable stabilizer",
         "Hydraulic power steering",
         "Level control on front axle 55 mm up-down",],
+    }, { 
+        firstImage: 'gturbo2.jpg',
+        secondImage: 'gturbo.jpg',
+        shortName: 'GTurbo',
+        src: 'gturbo',
+        name: '9FF GTurbo',
+        tag:  'GTurbo - a name for those hungry for performance',
+        vehicle: "Base vehicle 997 GT3 MK1 (3.6 and 3.8 possible)",
+        vehicleUpgrades: [
+            " Aluminum front hood and doors",
+            " Extreme vehicle weight reduction",
+
+            " Kevlar / carbon roof skin",
+
+            " Interior panels only in the front interior area",
+
+            " Recaro lightweight bucket seats in Alcantara",
+            " 9FF air inlets/outlets for intercooling",
+
+            "RS rear wing", 
+
+            "CUP front lip",
+            "1,210 kg curb weight", 
+        ], 
+        engineUpgrades: [ 
+            " 3.9 liter displacement engine",
+            "9FF engine block reinforcement",
+            "Double piston spray oil cooling per cylinder",
+            "9FF / Pankl forged pistons",
+            "9FF steel cylinder",
+            "9FF Pankl titanium connecting rod",
+            "9FF RS crankshaft",
+            "9FF cylinder heads with large valves and channels",
+            "9FF camshafts 'VarioCam' with variable inlet position",
+            "9FF aluminum intake manifold fully welded",
+            "Dual injectors",
+            "9FF petrol system and pressure regulator boost pressure controlled",
+            "9FF stainless steel manifold",
+            "Garrett GT1200R turbocharger with ball bearings and water-cooled",
+            "External waste gates",
+            "3-stage boost pressure control with control buttons on the steering wheel",
+            "9FF exhaust system with titanium rear silencer and flap control",
+            "9FF carbon air filter box with large fresh air intake and sports air filter",
+            "Double diverter air valve",
+            "Changed MAP sensor",
+            "1,200+ HP / 882 KW at 8,100 rpm",
+            "1,150 Nm at 5,800 rpm",
+            "8,200 rpm speed limiter",
+            "1.6 bar boost pressure (0.8 and 1.2 bar switchable)",
+            "104mm x 76.4mm (bore x stroke)",
+        ], chassisUpgrades: [ 
+            "Height-adjustable 9FF / Bilstein chassis",
+            "Aluminum shock absorbers",
+            "60mm racing springs",
+            "Rigid aluminum dome bearings",
+            "Reinforced wishbones VA + RA",
+            "VA and HA with adjustable stabilizer",
+            "Electro-hydraulic power steering",
+        ], transmissionUpgrades: [ 
+            "Sequential HOLINGER 6-speed racing transmission",
+            "Reinforced and straight-toothed",
+            "Gear ratios: 3.17 1.89 1.41 1.15 0.93 0.73 (axis 3.44:1)",
+            "Extra strong 9FF limited slip differential 40 / 60%",
+            "Reinforced drive shafts with larger internal joints",
+            "3-disc sinter clutch",
+            "Hydraulic central release bearing",
+            "Shifting up without using the clutch",
+            "Automatic full throttle “9FF Power Shift” (Engine Cut) system",
+        ], wheelUpgrades: [ 
+            "997 GT2 PCCB brake system",
+            "VA 380x34mm with 6-piston brake caliper",
+            "RA 350x28mm with 4-piston brake caliper",
+            "Porsche SUPERCUP brake pads",
+            "997 GT2 hydraulic unit",
+        
+            " 9FF light alloy wheels type \“GTurbo\”",
+            "VA 8.5 x 19\" with 245 / 35 ZR 19\" DUNLOP SportMaxx GT",
+            "RA 11 x 19\" with 315 / 30 ZR 19\" DUNLOP SportMaxx GT",
+        ], performanceTimes: [ 
+            "0-100km/h: 3.2s",
+
+            "0-200km/h: 6.7s",
+
+            "0-300 km/h: 12.4s",
+
+            "100-200km/h: 3.5s",
+
+            "200-300 km/h: 5.7s",
+            "Vmax: 395 km/h",
+        ], description: [ 
+            "Based on a GT3 or GT3 RS, we build a car for you that combines the sporty driving behavior of the base vehicle with the performance of a turbo vehicle.",
+            "In order to always be perfectly prepared both on the racetrack and on the highway, you have the choice between different transmissions and performance levels ranging from 750 hp to 1200 hp.",
+            "The GTurbo is ideal for understatement. What's inside will not be visible from the outside - if you wish. Its breathtaking acceleration and top speed result in a driving experience that you can enjoy in silence.",
+        
+            "We can also fully meet your wishes for individuality when designing the interior.", 
+            "In the technical specifications described below, we will introduce you to the “R” model from our GTurbo series as an example. Please contact us to show you all the options related to this special vehicle. After all, we build \“your car\”."
+        ]
     }
 ]

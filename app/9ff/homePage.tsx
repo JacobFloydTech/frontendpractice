@@ -11,7 +11,7 @@ export default function PorscheNavbar() {
     const router = useRouter();
     return (
         <div className="flex fixed p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center md:justify-around  z-50">
-            <div className="flex items-center hidden md:flex">
+            <div className="items-center hidden md:flex">
                 <img src={'/9ff/logo.png'}></img>
                 <img className="h-1/2 mx-4" src="/9ff/title.png"></img>
             </div>

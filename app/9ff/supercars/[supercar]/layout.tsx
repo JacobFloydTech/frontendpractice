@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import PorscheNavbar, { Footer } from '../../homePage'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <PorscheNavbar/>
       <body className={'bg-stone-200'}>{children}</body>
+   
     </html>
   )
 }
