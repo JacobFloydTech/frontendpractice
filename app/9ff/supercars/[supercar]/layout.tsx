@@ -16,10 +16,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en py-4">
       <PorscheNavbar/>
-      <body className={'bg-stone-200'}>{children}</body>
-   
+      <body className={'bg-stone-200 '}>{children}</body>
     </html>
   )
 }

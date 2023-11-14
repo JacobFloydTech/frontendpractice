@@ -154,7 +154,7 @@ export function GridContent() {
 }
 export function Footer() {
     return (
-        <div className="w-full h-auto bg-[#211F1F] text-white my-4">
+        <div className="w-full h-auto bg-[#211F1F] text-white  py-4">
             <div className="bg-[#211F1F] text-3xl mx-4 flex flex-col justify-center items-center text-center gap-y-2 my-4 p-4">
                 <p>Are you interested in a vehicle from 9ff?</p>
                 <p className="font-bold">We are here for you</p>
