@@ -26,22 +26,47 @@ export default function BackgroundGrid() {
         const gridRows = svg.clientWidth / rectSize;
         const gridCols = svg.clientHeight / rectSize;
         let originPoint = [Math.floor(gridRows * 0.5), Math.floor(gridCols * 0.5)];
-        for (var i = 0; i < gridCols; i++) {
-            for (var j = 0; j < gridRows; j++) {
-                let totalDisance = Math.abs(originPoint[0] - j) + Math.abs(originPoint[1] - i);
-                let percent = totalDisance / (originPoint[0] * originPoint[1]) * 100;
-                const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                gsap.set(rect, { opacity: 0, x: j * rectSize, y: i * rectSize, height: rectSize, width: rectSize, fill: `rgb(${getColorCode(0, percent)}, ${getColorCode(1, percent)}, ${getColorCode(2, percent)})`, border: 'black' })
-                svg.appendChild(rect);
-                gsap.to(rect, { opacity: 1 - percent / 12, duration: percent / 2, delay: percent / 6 })
-                gsap.fromTo(rect, { scale: 0.8 }, {
-                    scale: 1.2, duration: percent / 2, delay: percent / 6, onComplete: () => {
-                        gsap.to(rect, { scale: 1, duration: percent / 6 })
-                    }
-                })
-            }
-
+        function getPercent(originPoint: Array<number>, i: number, j: number) { 
+            let totalDisance = Math.abs(originPoint[0] - j) + Math.abs(originPoint[1] - i);
+            return totalDisance / (originPoint[0] * originPoint[1]) * 100;
         }
+        function animate() { 
+ 
+            for (var i = 0; i < gridCols; i++) {
+                for (var j = 0; j < gridRows; j++) {
+                    let percent = getPercent(originPoint, i, j)
+                    const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                    rect.id = `${i}, ${j}`;
+                    gsap.set(rect, { opacity: 0, x: j * rectSize, y: i * rectSize, height: rectSize, width: rectSize, fill: `rgb(${getColorCode(0, percent)}, ${getColorCode(1, percent)}, ${getColorCode(2, percent)})`, border: 'black' })
+                    svg?.appendChild(rect);
+                    gsap.to(rect, { opacity: 1 - percent / 12, duration: percent / 2, delay: Math.sqrt(percent) })
+                    gsap.fromTo(rect, { scale: 0.8 }, {
+                        scale: 1.2, duration: percent / 2, delay:percent/6, onComplete: () => {
+                            gsap.to(rect, { scale: 1, duration:percent/6,  })
+                        }
+                    })
+                }
+    
+            }
+        }
+        function update() { 
+            for (var i =0; i < gridCols; i++) { 
+                for (var j = 0; j < gridRows; j++) { 
+                    let percent = getPercent(originPoint, i, j)
+                    const rect = document.getElementById(`${i}, ${j}`);
+                    gsap.to(rect, { scale: 1.1, duration: Math.sqrt(percent), delay:  Math.sqrt(percent), onComplete: () => { 
+              
+                            gsap.to(rect, { scale: 1, duration: Math.sqrt(percent)/2, delay: Math.sqrt(percent)/2, })
+                     
+                    }})
+                }
+            }
+        }
+        animate();
+        setInterval(() => {
+            update()
+         },8000)
+
     }, [])
 
 
