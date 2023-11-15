@@ -13,7 +13,20 @@ export default function ImageChanger({ dir, maxCount }: imageChangerProps) {
 
     const curr = useRef<any>();
     const next = useRef<any>();
-
+    async function oscillate() { 
+        if (!curr.current || !next.current) { return}
+        console.log(next.current, curr.current);
+        if (next.current.style.opacity == 0) { 
+            gsap.to(next.current, { opacity: 1, duration: 2})
+            gsap.to(curr.current, { opacity: 0, duration: 2, })
+        } else {
+            gsap.to(curr.current, { opacity: 1, duration: 2});
+            gsap.to(next.current, { opacity: 0, duration: 2, })
+        }
+        setTimeout(() => {
+            oscillate()
+        }, 3500);
+    }
     async function changeImage() {
         console.log(currentImage, nextImage);
         if (!curr.current || !next.current) { return; }
@@ -42,9 +55,11 @@ export default function ImageChanger({ dir, maxCount }: imageChangerProps) {
 
 
     useEffect(() => {
-
-        changeImage();
-
+        if (maxCount > 1) {
+            changeImage();
+        } else { 
+            oscillate();
+        }
     }, [])
 
     return (

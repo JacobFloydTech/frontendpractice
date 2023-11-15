@@ -19,7 +19,7 @@ export default function PorscheNavbar() {
             </div>
             <div className="w-full md:w-1/2  flex justify-around space-x-[4px] md:space-x-4 text-[10px] md:text-lg font-semibold">
                 {['Home', 'Services', 'Supercars', 'Shop', 'Gallery', 'About us', 'News', 'Contact'].map((e) => {
-                    return <button onClick={() => {e != 'Home' ? router.push(`/9ff/${e.toLowerCase()}`): router.push('/9ff/')}}>{e}</button>
+                    return <button onClick={() => {e != 'Home' ? router.push(`/9ff/${e.toLowerCase().replace(' ', '')}`): router.push('/9ff/')}}>{e}</button>
                 })}
             </div>
         </div>
@@ -42,6 +42,9 @@ export function ImageSlider() {
     }, [])
 
     async function main() {
+        if (!ref.current.children) { 
+            return;
+        }
         const height = Array.from(ref.current.children as HTMLImageElement[])[0].clientHeight;
         const el = document.getElementById('myImages');
 
