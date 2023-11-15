@@ -1,10 +1,26 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
+
+type MousePosition = { 
+    x: number;
+    y: number
+}
+
 export default function BackgroundGrid() {
+
     useEffect(() => {
+        let x = 0;
+        let y =0;
+
+        if (document.body.clientWidth >= 600) { 
+            document.body.addEventListener('mousemove', ({clientX, clientY}) => {
+                x = clientX;
+                y = clientY;
+            })
+        }
         let svg = document.getElementById('svg');
         let middleColor: number[] = [];
         let outerColor: number[] = [];
@@ -22,7 +38,7 @@ export default function BackgroundGrid() {
             return;
         }
 
-        const rectSize = 30 //pixels;
+        const rectSize = 32;//pixels;
         const gridRows = svg.clientWidth / rectSize;
         const gridCols = svg.clientHeight / rectSize;
         let originPoint = [Math.floor(gridRows * 0.5), Math.floor(gridCols * 0.5)];
@@ -39,7 +55,7 @@ export default function BackgroundGrid() {
                     rect.id = `${i}, ${j}`;
                     gsap.set(rect, { opacity: 0, x: j * rectSize, y: i * rectSize, height: rectSize, width: rectSize, fill: `rgb(${getColorCode(0, percent)}, ${getColorCode(1, percent)}, ${getColorCode(2, percent)})`, border: 'black' })
                     svg?.appendChild(rect);
-                    gsap.to(rect, { opacity: 1 - percent / 12, duration: percent / 2, delay: Math.sqrt(percent) })
+                    gsap.to(rect, { opacity: 1 - percent / 12, duration:  Math.sqrt(percent), delay: Math.sqrt(percent) })
                     gsap.fromTo(rect, { scale: 0.8 }, {
                         scale: 1.2, duration: percent / 2, delay:percent/6, onComplete: () => {
                             gsap.to(rect, { scale: 1, duration:percent/6,  })
@@ -49,23 +65,27 @@ export default function BackgroundGrid() {
     
             }
         }
+        function getOriginFromMouse() { 
+            return [Math.floor(x/rectSize), Math.floor(y/rectSize)];
+        }
+   
         function update() { 
             for (var i =0; i < gridCols; i++) { 
                 for (var j = 0; j < gridRows; j++) { 
-                    let percent = getPercent(originPoint, i, j)
+                    let percent = document.body.clientWidth >= 600 ? getPercent(getOriginFromMouse(), i, j) : getPercent(originPoint, i, j)
                     const rect = document.getElementById(`${i}, ${j}`);
-                    gsap.to(rect, { scale: 1.1, duration: Math.sqrt(percent), delay:  Math.sqrt(percent), onComplete: () => { 
-              
-                            gsap.to(rect, { scale: 1, duration: Math.sqrt(percent)/2, delay: Math.sqrt(percent)/2, })
-                     
+                    gsap.to(rect, { scale: 0.99, duration: Math.sqrt(percent)/8, delay:  Math.sqrt(percent)/8, onComplete: () => { 
+                        gsap.to(rect, { scale: 1.1, duration: Math.sqrt(percent)/8, delay:  Math.sqrt(percent)/8, onComplete: () => { 
+                            gsap.to(rect, { scale: 1, duration: Math.sqrt(percent)/8, delay: Math.sqrt(percent)/8, })
                     }})
+                }})
                 }
             }
         }
         animate();
         setInterval(() => {
             update()
-         },8000)
+        },5000)
 
     }, [])
 
