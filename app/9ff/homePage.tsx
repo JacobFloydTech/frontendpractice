@@ -8,7 +8,9 @@ import ImageChanger from "./imageSlider";
 
 
 export default function PorscheNavbar() {
-    const router = useRouter();
+    const [currentPage, setCurrentPage] = useState('');
+
+    const router =  useRouter();
     return (
         <div className="flex fixed p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center md:justify-around  z-50">
             <div className="items-center hidden md:flex">
@@ -16,14 +18,9 @@ export default function PorscheNavbar() {
                 <img className="h-1/2 mx-4" src="/9ff/title.png"></img>
             </div>
             <div className="w-full md:w-1/2  flex justify-around space-x-[4px] md:space-x-4 text-[10px] md:text-lg font-semibold">
-                <button onClick={() => { router.push('/9ff/') }}>Home</button>
-                <button onClick={() => { router.push('/9ff/services') }}>Services</button>
-                <button onClick={() => { router.push('/9ff/supercars') }}>Supercars</button>
-                <button>Shop</button>
-                <button>Gallery</button>
-                <button>About us</button>
-                <button>News</button>
-                <button>Contact</button>
+                {['Home', 'Services', 'Supercars', 'Shop', 'Gallery', 'About us', 'News', 'Contact'].map((e) => {
+                    return <button onClick={() => {e != 'Home' ? router.push(`/9ff/${e.toLowerCase()}`): router.push('/9ff/')}}>{e}</button>
+                })}
             </div>
         </div>
     )
@@ -155,7 +152,7 @@ export function GridContent() {
 export function Footer({text}: { text?: string}) {
     return (
         <div>
-            <div className="w-full h-auto bg-[#211F1F] text-white py-4">
+            <div className="w-full h-auto bg-[#211F1F] text-white py-4 z-50">
                 <div className="bg-[#211F1F] text-3xl mx-4 flex flex-col justify-center items-center text-center gap-y-2 my-4 p-4">
                     {text ? <p>{text}</p> : <p>Are you interested in a vehicle from 9ff?</p> } 
                     <p className="font-bold my-4">We are here for you</p>
@@ -168,7 +165,7 @@ export function Footer({text}: { text?: string}) {
                     <Email />
                 </div>
             </div>
-            <div className="flex flex-col w-full h-auto">
+            <div className="flex flex-col w-full h-auto bg-white">
                 <div className="md:w-2/3 w-full grid grid-cols-2 md:grid-cols-3 mx-auto mt-5 gap-4 font-bold md:text-lg">
                     <button>Home</button>
                     <button>Shop</button>
@@ -180,10 +177,8 @@ export function Footer({text}: { text?: string}) {
                     <button>News</button>
                     <button>Data Protection</button>
                 </div>
-              
                 <GoToTop/>
-                <div className="w-full mx-auto h-5 rounded-full -translate-y-4 bg-black">
-             
+                <div className="w-full mx-auto h-5  bg-black">
                 </div>
             </div>
         </div>

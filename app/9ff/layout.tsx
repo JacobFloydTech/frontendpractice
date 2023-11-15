@@ -2,7 +2,8 @@
 import '/public/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import PorscheNavbar from './homePage'
+import PorscheNavbar, { Footer } from './homePage'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,11 +17,14 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className='relative'>
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-            <body >
-                <PorscheNavbar />
-                {children}</body>
+            <PorscheNavbar />
+            <body className='bg-gray-200 h-auto relative -z-10'>
+             
+                {children}
+            </body>
+                <Footer/>
         </html>
     )
 }

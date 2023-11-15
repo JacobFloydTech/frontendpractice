@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import PorscheNavbar, { Footer } from '../../homePage'
 
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

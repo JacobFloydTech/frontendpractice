@@ -11,7 +11,7 @@ export default function SupercarsHome() {
     ]
     return (
         <div className="flex flex-col w-full h-auto bg-gray-200">
-            <div className="fixed mx-4">
+            <div className="fixed mx-4 z-0">
                 <img src="/9ff/supercars/main.jpg"></img>
             </div>
             <div className="w-full h-screen "></div>
@@ -29,7 +29,7 @@ export default function SupercarsHome() {
                         Flawless top quality. That's why a 9FF never has to hide with its driver. To nothing and no one.</p>
                     <p>Discover our 9FF supercars below</p>
                 </div>
-                <div className="carGrid gap-y-5">
+                <div className="flex flex-col space-y-2 md:space-y-6 ">
                     {cars.map((car, i) => {
                         return (
                             <CarComponent key={i} car={car} />
