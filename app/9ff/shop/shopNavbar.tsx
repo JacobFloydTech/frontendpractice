@@ -7,11 +7,33 @@ import gsap from "gsap";
 export default function ShopNavbar() { 
     const [hover, setHover] = useState<number>(0);
 
+    function checkXAxis(x: number, left: number, right: number) { 
+        return (x >= left && x <= right);
+    }
+
+    function checkYAxis(y: number, start: number, height: number) { 
+        if (start-10 > y || start+height < y) { 
+            return false;
+        }
+        return true;
+    }
+   
+    function check(x: number, y: number) { 
+        ['sportsCar', 'merchandise'].forEach((e, i) => { 
+            const data = document.getElementById(e)?.getBoundingClientRect()
+            if ( !data) { return}
+            if (checkXAxis(x, data.left, data.right) && checkYAxis(y, data.top, data.height)) { 
+                return i+1;
+            }
+        }) 
+        
+        return 0;
+    }
     return (
-        <div className="fixed w-full z-50">
+        <div className="fixed w-full z-50 ">
             <div className="flex flex-col items-center justify-center   bg-[#222222]">
                 <div className="flex justify-between w-2/3 ">
-                    <img className="h-20" src="/9ff/shop/shopLogo.png"></img>
+                    <img className="h-12 m-2 md:h-20" src="/9ff/shop/shopLogo.png"></img>
                     <div className="flex items-center justify-center space-x-4">
                         <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 50 40"  >
                             <path fill="white" d="M20.745,32.62c2.883,0,5.606-1.022,7.773-2.881L39.052,40.3c0.195,0.196,0.452,0.294,0.708,0.294  c0.255,0,0.511-0.097,0.706-0.292c0.391-0.39,0.392-1.023,0.002-1.414L29.925,28.319c3.947-4.714,3.717-11.773-0.705-16.205  c-2.264-2.27-5.274-3.52-8.476-3.52s-6.212,1.25-8.476,3.52c-4.671,4.683-4.671,12.304,0,16.987  C14.533,31.37,17.543,32.62,20.745,32.62z M13.685,13.526c1.886-1.891,4.393-2.932,7.06-2.932s5.174,1.041,7.06,2.932  c3.895,3.905,3.895,10.258,0,14.163c-1.886,1.891-4.393,2.932-7.06,2.932s-5.174-1.041-7.06-2.932  C9.791,23.784,9.791,17.431,13.685,13.526z"/>
@@ -22,7 +44,7 @@ export default function ShopNavbar() {
                     </div>
                 </div>
                 <div className="w-full h-[1px] mt-4 bg-gray-300 bg-opacity-40"/>
-                <div onMouseLeave={() =>{ setHover(0)}} className="flex w-2/3 justify-between text-white h-12 items-center" >
+                <div onMouseLeave={({clientX, clientY}) => {check(clientX, clientY)}} className="flex w-full md:w-2/3 justify-between text-white h-12 items-center" >
                     <div   className="flex uppercase font-bold text-white h-full ">
                         <div id='sportsCarLabel' onMouseEnter={() => { setHover(1)}} className={"flex justify-center items-center space-x-4 h-12 rounded-sm p-4" + (hover == 1 ? " bg-gray-900": "")}>
                             <p>Sports cars</p>
@@ -33,15 +55,15 @@ export default function ShopNavbar() {
                             <Arrow/>
                         </div>
                     </div>
-                    <p className="text-sm text-gray-200">Account</p>
+                    <p className="text-sm text-gray-200 hidden md:block">Account</p>
                 </div>
             </div>
-            <DropDowns hover={hover}/>
+            <DropDowns hover={hover} setHover={setHover}/>
         </div>
     )
 }
 
-function DropDowns({hover}: { hover:  number}) { 
+function DropDowns({hover, setHover}: { hover:  number, setHover: Function}) { 
     const sportsCarsItems = [964, 993, 996, 997, 991, 992]  
     const merchandiseItems = ['Clothing', 'Accessories']
     const sportsCar = useRef<any>();
@@ -56,7 +78,7 @@ function DropDowns({hover}: { hover:  number}) {
  
     },[])
     useEffect(() => { 
-        console.log(hover);
+     
          if (hover == 1) { 
             gsap.set(sportsCar.current, { opacity: 1, duration: 0.3})
             gsap.to(merchandise.current, { opacity: 0, duration: 0.3})
@@ -69,13 +91,13 @@ function DropDowns({hover}: { hover:  number}) {
         }
     },[hover])
     return ( 
-        <div className="flex w-2/3 mx-auto -translate-y-2">
-                <div ref={sportsCar} className={"flex flex-col opacity-0 text-black p-2 text-center "}>
-                    {sportsCarsItems.map((e,i) => { return <p key={i} className="text-lg p-2 px-6 bg-white">{e}</p>})}
+        <div  className="flex md:w-2/3 mx-auto -translate-y-2">
+                <div onMouseLeave={() => {setHover(0)}} id='sportsCar' ref={sportsCar} className={"flex flex-col opacity-0 text-black p-2 text-center "}>
+                    {sportsCarsItems.map((e,i) => { return <button key={i} className="text-lg button-2 px-6 py-2 bg-white">{e}</button>})}
                 </div>
        
-                <div ref={merchandise} className={"flex flex-col opacity-0  text-black p-2 text-center "}>
-                    {merchandiseItems.map((e,i) => { return <p key={i} className="text-lg p-2 px-6 bg-white">{e}</p>})}
+                <div onMouseLeave={() => {setHover(0)}} id='merchandise'  ref={merchandise} className={"flex flex-col opacity-0  text-black p-2 text-center "}>
+                    {merchandiseItems.map((e,i) => { return <button key={i} className="text-lg p-2 px-6 py-2 bg-white">{e}</button>})}
                 </div>
        
         </div>
@@ -94,3 +116,4 @@ function Arrow() {
         </span>
     )
 }
+
