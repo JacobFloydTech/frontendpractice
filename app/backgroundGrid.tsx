@@ -57,7 +57,7 @@ export default function BackgroundGrid() {
                     svg?.appendChild(rect);
                     gsap.to(rect, { opacity: 1 - percent / 12, duration:  Math.sqrt(percent), delay: Math.sqrt(percent) })
                     gsap.fromTo(rect, { scale: 0.8 }, {
-                        scale: 1.2, duration: percent / 2, delay:percent/6, onComplete: () => {
+                        scale: 1.2, duration: Math.sqrt(percent)/2, delay:Math.sqrt(percent)/6, onComplete: () => {
                             gsap.to(rect, { scale: 1, duration:percent/6,  })
                         }
                     })
@@ -85,7 +85,7 @@ export default function BackgroundGrid() {
         animate();
         setInterval(() => {
             update()
-        },5000)
+        },4000)
 
     }, [])
 

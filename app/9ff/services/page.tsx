@@ -38,7 +38,7 @@ export default function ServiceHome() {
                     </div>
                 </div>
                 <Grid />
-                <Footer/>
+              
             </div>
 
         </div>
