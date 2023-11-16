@@ -4,7 +4,7 @@ import ImageChanger from "../imageSlider"
 export default function AboutUsPage() { 
     return ( 
         <div className="flex flex-col mt-32 w-full md:w-3/4 mx-auto relative mb-12">
-            <div className="h-48 md:h-96 xl:h-[600px] absolute w-full mx-auto left-1/2 -translate-x-1/2">
+            <div className="h-48 md:h-96 xl:h-[600px] fixed md:w-3/4 mx-auto left-1/2 -translate-x-1/2">
                     <img className="w-full h-full object-cover" src={'/9ff/aboutus/aboutus1.jpg'}></img>
             </div>
             <div className="flex flex-col space-y-8  bg-slate-200 z-40 mt-48 md:mt-96 xl:mt-[632px]">

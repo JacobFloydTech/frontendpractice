@@ -158,7 +158,7 @@ export default function CarModel({ params: { car } }: { params: { car: string } 
 
             <ServicesFooter />
             <NavigationFooterServices index={index} cars={carsServiceDetails} />
-            <Footer/>
+       
         </div >
     )
 }
