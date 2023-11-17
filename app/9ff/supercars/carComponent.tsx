@@ -1,6 +1,6 @@
 'use client';
 import type { Car } from "@/types";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useRouter } from "next/navigation";
 export default function CarComponent({ car }: { car: Car }) {
@@ -8,20 +8,22 @@ export default function CarComponent({ car }: { car: Car }) {
     let [hover, setHover] = useState(false);
     let overlay = useRef<any>();
     let parent = useRef<any>();
+
     function animate() {
+
         if (hover) {        
          
-      
-            gsap.to(parent.current, { 
+          
+            gsap.to(parent?.current, { 
                 backgroundSize: '100%', duration: 0.45,
             })
-            gsap.to(overlay.current, {
+            gsap.to(overlay?.current, {
                 opacity: 0, duration: 0.45, onComplete: () => {
                     setHover(false);
                 }, 
             }, )
         } else { 
-            gsap.to(parent.current, { 
+            gsap.to(parent?.current, { 
                 backgroundSize: '102%', duration: 0.45,
             onComplete: () => { setHover(true)}})
         }

@@ -19,12 +19,13 @@ export default function RootLayout({
     return (
         <html lang="en" className='relative'>
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-            <PorscheNavbar />
+            <PorscheNavbar/>
             <body className='bg-gray-200 h-auto relative -z-10'>
-             
+      
                 {children}
-            </body>
                 <Footer/>
+            </body>
+               
         </html>
     )
 }

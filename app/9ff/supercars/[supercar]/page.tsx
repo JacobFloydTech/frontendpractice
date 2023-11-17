@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { SuperCarData } from "./data"
-import { Footer } from "../../homePage";
+
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +13,7 @@ export default function Home({params: { supercar}}: {params: {supercar: string}}
     const description = useRef<any>();
 
     useEffect(() => { 
+        if (!firstImage.current || !description.current || !description.current.children) { return}
         gsap.fromTo(firstImage.current, { opacity: 0,}, { opacity: 1, duration: 1, ease: 'power4.inOut'});
         Array.from(description.current.children).forEach((e: any) => { 
             gsap.fromTo(e, {opacity: 0, translateX: '+=30'}, { opacity: 1, translateX: '-=30', scrollTrigger: { 
@@ -84,8 +85,8 @@ export default function Home({params: { supercar}}: {params: {supercar: string}}
                 }
             </div>
             </div>
-            <div className=" max-h-48 md:max-h-70 2xl:max-h-[650px] overflow-hidden">
-            <img className=" w-full h-full object-cover " src={result.secondImage}></img>
+            <div className="md:w-full h-32 sm:h-64 md:h-96 xl:h-[400px] 2xl:h-[600px] overflow-hidden relative">
+                <img className="h-full w-full object-cover object-center absolute top-0 left-0 " src={result.secondImage}></img>
             </div>
        
         </div>

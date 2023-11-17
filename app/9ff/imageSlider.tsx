@@ -15,7 +15,7 @@ export default function ImageChanger({ dir, maxCount }: imageChangerProps) {
     const next = useRef<any>();
     async function oscillate() { 
         if (!curr.current || !next.current) { return}
-        console.log(next.current, curr.current);
+       
         if (next.current.style.opacity == 0) { 
             gsap.to(next.current, { opacity: 1, duration: 2})
             gsap.to(curr.current, { opacity: 0, duration: 2, })
@@ -28,7 +28,7 @@ export default function ImageChanger({ dir, maxCount }: imageChangerProps) {
         }, 3500);
     }
     async function changeImage() {
-        console.log(currentImage, nextImage);
+    
         if (!curr.current || !next.current) { return; }
         if (next.current.style.opacity == 0) {
             setNextImage((next) => next == maxCount ? 0 : next + 1);

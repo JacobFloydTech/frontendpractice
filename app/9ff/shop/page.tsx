@@ -116,6 +116,7 @@ function Product({data}: { data: MerchData}) {
     const ref = useRef<any>();
 
     useEffect(() =>{  
+        if (!ref.current) { return}
         if ( hover) { 
             gsap.fromTo(ref.current, { opacity: 0, translateY: 50}, { opacity: 1, translateY: -10, duration: 0.5})
         } else { 

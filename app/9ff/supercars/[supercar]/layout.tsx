@@ -19,10 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en  ">
       <PorscheNavbar/>
-      <body className={'bg-stone-200  h-auto'}>{children}</body>
-      <div className='w-3/4 mx-auto m-0 p-0'>
+      <body className={'bg-stone-200  h-auto'}>
+
+        {children}
+  
         <Footer text='Are one of our 9FF Supercars a question for you?'/>
-      </div>
+        
+        </body>
+
     </html>
   )
 }

@@ -2,15 +2,14 @@
 
 import gsap from "gsap"
 
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react"
+
+import { useEffect, useRef,  } from "react"
 import ImageChanger from "./imageSlider";
 
 
 export default function PorscheNavbar() {
-    const [currentPage, setCurrentPage] = useState('');
 
-    const router =  useRouter();
+    
     return (
         <div className="flex fixed p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center md:justify-around  z-50">
             <div className="items-center hidden md:flex">
@@ -18,8 +17,8 @@ export default function PorscheNavbar() {
                 <img className="h-1/2 mx-4" src="/9ff/title.png"></img>
             </div>
             <div className="w-full md:w-1/2  flex justify-around space-x-[4px] md:space-x-4 text-[10px] md:text-lg font-semibold">
-                {['Home', 'Services', 'Supercars', 'Shop', 'Gallery', 'About us', 'News', 'Contact'].map((e) => {
-                    return <button onClick={() => {e != 'Home' ? router.push(`/9ff/${e.toLowerCase().replace(' ', '')}`): router.push('/9ff/')}}>{e}</button>
+                {['Home', 'Services', 'Supercars', 'Shop', 'Gallery', 'About us', 'News', 'Contact'].map((e,i) => {
+                    return <a key={i} href={e == 'Home' ? "/9ff/" : `/9ff/${e.toLowerCase().replace(" ", '')}`}>{e}</a>
                 })}
             </div>
         </div>
@@ -45,7 +44,7 @@ export function ImageSlider() {
         if (!ref.current.children) { 
             return;
         }
-        const height = Array.from(ref.current.children as HTMLImageElement[])[0].clientHeight;
+        const height = Array.from(ref.current.children as HTMLImageElement[])[0]?.clientHeight ?? 0;
         const el = document.getElementById('myImages');
 
 
@@ -66,6 +65,7 @@ export function ImageSlider() {
         async function animate() {
 
             timeout = setInterval(() => {
+                if (!el || !el.children) { return}
                 Array.from(el?.children as HTMLCollectionOf<HTMLElement>).forEach((e) => {
                     const offset = getTranslateY(e.style.transform)
 
