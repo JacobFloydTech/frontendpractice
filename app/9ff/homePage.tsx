@@ -3,21 +3,21 @@
 import gsap from "gsap"
 
 
-import { useEffect, useRef,  } from "react"
+import { useEffect, useRef, } from "react"
 import ImageChanger from "./imageSlider";
 
 
 export default function PorscheNavbar() {
 
-    
+
     return (
-        <div className="flex fixed p-2 top-0 left-0 w-full h-24 bg-gray-100 items-center md:justify-around  z-50">
+        <div className="flex fixed xl:p-2 top-0 left-0 w-full h-20 md:h-22 xl:h-24 bg-gray-100 items-center md:justify-around  z-50">
             <div className="items-center hidden md:flex">
-                <img src={'/9ff/logo.png'}></img>
-                <img className="h-1/2 mx-4" src="/9ff/title.png"></img>
+                <img className="h-full md:h-2/3 xl:h-1/2" src={'/9ff/logo.png'}></img>
+                <img className="h-full md:h-2/3 xl:h-1/2 mx-4" src="/9ff/title.png"></img>
             </div>
-            <div className="w-full md:w-1/2  flex justify-around space-x-[4px] md:space-x-4 text-[10px] md:text-lg font-semibold">
-                {['Home', 'Services', 'Supercars', 'Shop', 'Gallery', 'About us', 'News', 'Contact'].map((e,i) => {
+            <div className="w-full md:w-2/3 xl:w-1/2  flex justify-around space-x-[4px] md:space-x-4 text-[10px] md:text-lg font-semibold">
+                {['Home', 'Services', 'Supercars', 'Shop', 'Gallery', 'About us', 'News', 'Contact'].map((e, i) => {
                     return <a key={i} href={e == 'Home' ? "/9ff/" : `/9ff/${e.toLowerCase().replace(" ", '')}`}>{e}</a>
                 })}
             </div>
@@ -41,7 +41,7 @@ export function ImageSlider() {
     }, [])
 
     async function main() {
-        if (!ref.current.children) { 
+        if (!ref.current.children) {
             return;
         }
         const height = Array.from(ref.current.children as HTMLImageElement[])[0]?.clientHeight ?? 0;
@@ -65,7 +65,7 @@ export function ImageSlider() {
         async function animate() {
 
             timeout = setInterval(() => {
-                if (!el || !el.children) { return}
+                if (!el || !el.children) { return }
                 Array.from(el?.children as HTMLCollectionOf<HTMLElement>).forEach((e) => {
                     const offset = getTranslateY(e.style.transform)
 
@@ -138,7 +138,7 @@ export function GridContent() {
                     <p className="text-lg my-2">9FF is one of the smaller German vehicle manufacturers approved by the Federal Motor Transport Authority.</p>
                     <p className="text-lg">Our services are designed for all sports cars from Stuttgart.</p>
                 </div>
-                <div className="col-span-2 uppercase text-5xl text-right m-4 ">
+                <div className="col-span-2 uppercase text-lg md:text-3xl xl:text-4xl text-right m-4 ">
                     <p>9FF is</p>
                     <p className="font-bold my-4">powerful</p>
                     <p>A</p>
@@ -152,12 +152,12 @@ export function GridContent() {
         </div>
     )
 }
-export function Footer({text}: { text?: string}) {
+export function Footer({ text }: { text?: string }) {
     return (
         <div>
             <div className="w-full h-auto bg-[#211F1F] text-white py-4 z-50">
                 <div className="bg-[#211F1F] text-3xl mx-4 flex flex-col justify-center items-center text-center gap-y-2 my-4 p-4">
-                    {text ? <p>{text}</p> : <p>Are you interested in a vehicle from 9ff?</p> } 
+                    {text ? <p>{text}</p> : <p>Are you interested in a vehicle from 9ff?</p>}
                     <p className="font-bold my-4">We are here for you</p>
                     <button className="bg-[#444141] border-white border-2 shadow-2xl p-2 text-white mb-4">Contact</button>
                 </div>
@@ -180,7 +180,7 @@ export function Footer({text}: { text?: string}) {
                     <button>News</button>
                     <button>Data Protection</button>
                 </div>
-                <GoToTop/>
+                <GoToTop />
                 <div className="w-full mx-auto h-5  bg-black">
                 </div>
             </div>
@@ -188,16 +188,17 @@ export function Footer({text}: { text?: string}) {
     )
 }
 
-function GoToTop() { 
+function GoToTop() {
 
-    return ( 
-        <button className="h-32 mx-auto  w-32" onClick={() => {    
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        })}}>
+    return (
+        <button className="h-32 mx-auto  w-32" onClick={() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            })
+        }}>
             <svg className="w-full h-full" viewBox="50 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="150" cy="100" r='40'/>
+                <circle cx="150" cy="100" r='40' />
                 <polygon points="150 100, 100 200, 190 200"></polygon>
                 <polygon fill="white" points="130 120, 150 80, 170 120" stroke="white"></polygon>
             </svg>
