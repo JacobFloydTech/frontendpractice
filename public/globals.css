@@ -11,11 +11,17 @@
     --frontendY: 200px;
 }
 
+html, body { 
+    width: 100%;
+}
+
 .backendSkillsContainer { 
     background: radial-gradient(circle at var(--backendX) var(--backendY) , rgba(246,246,246,0.2) 30%, rgba(0,0,0,0.2) 90%);
     backdrop-filter: blur(6px);
     transition: backdrop-filter 0.5s ease, transform 400ms ease-out;
 }
+
+
 
 
 .backendSkillsContainer:hover { 
@@ -30,7 +36,7 @@
 }
 
 .helloWorld {
-    background: linear-gradient(90deg, rgba(0,24,255,1) 0%, rgba(0,255,53,1) 100%);
+    background: linear-gradient(70deg, rgba(0,24,255,1) 0%, rgba(0,255,53,1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 } 

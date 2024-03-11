@@ -31,74 +31,73 @@ export default function Skills() {
     }
 
     return ( 
-        <div className="grid grid-cols-2 items-center justify-center gap-4 w-full 2xl:w-2/3 py-24 mx-auto text-white">
-            <div id='backend' onMouseEnter={() => document.addEventListener('mousemove', mouseBackendListener)} onMouseLeave={() => document.removeEventListener('mousemove', mouseBackendListener)} className="text-center border-2 border-white w-3/4 2xl:w-2/3 backendSkillsContainer overflow-visible  p-4 rounded-2xl  mx-auto relative">
-     
+        <div className="grid md:grid-cols-2 grid-cols-1  items-center justify-center md:gap-4 w-full 2xl:w-2/3 py-24 mx-auto text-white">
+            <div id='backend' onMouseEnter={() => document.addEventListener('mousemove', mouseBackendListener)} onMouseLeave={() => document.removeEventListener('mousemove', mouseBackendListener)} className="text-center border-2 border-white backendSkillsContainer overflow-visible  p-4 rounded-2xl  mx-auto relative w-[90%] md:w-3/4 lg:w-1/2 xl:w-2/3">   
                 <h1 className="font-bold text-3xl pb-2">Backend skills</h1>
-                <ul className="bg-inherit mx-auto text-left w-1/2  flex flex-col space-y-4 text-sm md:text-lg xl:text-[21px]">
+                <ul className="bg-inherit mx-auto text-left w-2/3 p-0 md:pl-8 xl:pl-14  flex flex-col space-y-4 text-sm md:text-lg xl:text-[21px]">
                     <li className="flex items-center space-x-2">
                         <img className="w-8 aspect-square" src="/profileLogos/firebaseLogo.png" />
-                        <p className=" mix-blend-difference ">Firebase</p>
+                        <p className=" mix-blend-difference font-semibold ">Firebase</p>
                     </li>
                     <li className="flex items-center  space-x-2">
                         <img className="w-8 aspect-square" src="/profileLogos/supabaselogo.png" />
-                        <p className="mix-blend-difference ">Supabase</p></li>
+                        <p className="mix-blend-difference font-semibold ">Supabase</p></li>
                     <li className="flex items-center  space-x-2">
                         <img className="w-8 aspect-square" src="/profileLogos/postgresLogo.png"/>
-                        <p className="mix-blend-difference ">MySQL/Postgres</p>
+                        <p className="mix-blend-difference font-semibold ">MySQL/Postgres</p>
                     </li>
                     <li  className="flex items-center  space-x-2">
                         <img className="w-8 aspect-square" src="/profileLogos/honoLogo.png"/>
-                        <p className="mix-blend-difference ">Express & Hono</p>
+                        <p className="mix-blend-difference font-semibold ">Express & Hono</p>
                     </li>
                     <li className="flex items-center  space-x-2">
                         <img className="w-8 aspect-square object-contain" src="/profileLogos/awsLogo.png"/>
-                        <p className="mix-blend-difference ">AWS - Lambda, S3, & EC2 </p>
+                        <p className="mix-blend-difference font-semibold ">AWS - Lambda, S3, & EC2 </p>
                     </li>
                     <li className="flex items-center  space-x-2">
                         <AuthLogo/>
-                        <p className="mix-blend-difference ">Authentication</p></li>
+                        <p className="mix-blend-difference font-semibold ">Authentication</p></li>
                     <li className="flex items-center  space-x-2">
               <img className="w-8 aspect-square object-contain" src="/profileLogos/mongoDBLogo.png"/>
-                        <p className="mix-blend-difference ">MongoDB</p></li>
+                        <p className="mix-blend-difference font-semibold ">MongoDB</p></li>
                     </ul>
     
             </div>
             <div id="frontend" onMouseEnter={() => document.addEventListener('mousemove', mouseFrontendListener
-            )} onMouseLeave={() => document.removeEventListener('mousemove', mouseFrontendListener)} className="text-center frontendSkillsContainer mx-auto w-1/2 border-2 p-4 h-full rounded-2xl flex flex-col 2xl:w-2/3 relative">
+            )} onMouseLeave={() => document.removeEventListener('mousemove', mouseFrontendListener)} className="text-center frontendSkillsContainer mx-auto  w-[90%] md:w-3/4 lg:w-1/2 xl:w-2/3 border-2 p-4 h-full rounded-2xl flex flex-col 2xl:w-2/3 relative">
                 <h1  className="font-bold text-3xl">Frontend skills</h1>
-                <ul className=" w-2/3 mx-auto pl-14 flex flex-col space-y-2 text-xl justify-around h-full">
+                <ul className=" w-2/3 mx-auto md:pl-8 xl:pl-14 flex flex-col space-y-2 text-xl justify-around h-full">
                     <li className="flex space-x-2 text-center items-center">
                         <ReactLogo />
-                        <p>React</p>
+                        <p className="mix-blend-difference font-semibold" >React</p>
                     </li>
                     <li className="flex space-x-2 text-center items-center">
                         <NextJSLogo />
-                        <p>Next JS</p>
+                        <p className="mix-blend-difference font-semibold" >Next JS</p>
                     </li>
                     <li className="flex space-x-2 text-center items-center">
                         <img className="w-8 aspect-square" src="/profileLogos/svelteLogo.png" />
-                        <p>Svelte/SvelteKit</p>
+                        <p className="mix-blend-difference font-semibold" >Svelte/SvelteKit</p>
                     </li>
                     <li className="flex space-x-2 text-center items-center">
                         <img className="w-8 aspect-square" src="/profileLogos/solidLogo.png" />
-                        <p>Solid JS</p>
+                        <p className="mix-blend-difference font-semibold" >Solid JS</p>
                     </li>
                      <li className="flex space-x-2 text-center items-center">
                         <img className="w-8 aspect-square object-contain" src="/profileLogos/tailwindLogo.png" />
-                        <p>Tailwind CSS</p>
+                        <p className="mix-blend-difference font-semibold" >Tailwind CSS</p>
                     </li>
                     <li className="flex space-x-2 text-center items-center">
                         <img className="w-8 aspect-square object-contain" src="/profileLogos/cssLogo.png"/>
-                        <p>CSS/Sass</p>
+                        <p className="mix-blend-difference font-semibold" >CSS/Sass</p>
                     </li>
                     <li className="flex space-x-2 text-center items-center">
                         <GSAPLogo />
-                        <p>GSAP</p>
+                        <p className="mix-blend-difference font-semibold" >GSAP</p>
                     </li>
                     <li className="flex space-x-2 text-center items-center">
                         <img className='w-8 aspect-square object-contain' src="/profileLogos/threejsLogo.png" />
-                        <p>Three JS</p>
+                        <p className="mix-blend-difference font-semibold" >Three JS</p>
                     </li>
                 </ul>
             </div>

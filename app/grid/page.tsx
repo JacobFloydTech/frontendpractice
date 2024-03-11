@@ -6,7 +6,7 @@ import Skills from "./skills";
 export default function Page() { 
     return ( 
         <div>
-            <div className="absolute -z-10  w-screen">
+            <div className="absolute -z-10  ">
                 <Background />
             </div>
             <Portfolio />

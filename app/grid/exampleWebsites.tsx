@@ -2,7 +2,7 @@
 
 export default function ExampleWebsites() { 
     return ( 
-        <div id='websiteContainer' className="grid grid-cols-2 w-2/3 mx-auto gap-14 pt-12">
+        <div id='websiteContainer' className="grid md:grid-cols-2 w-3/4 md:w-2/3 mx-auto gap-14 pt-12">
             <RisosEnterprisesWebsite />
             <CarMarket/>
         </div>

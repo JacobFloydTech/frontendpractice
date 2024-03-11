@@ -28,10 +28,10 @@ export default function Portfolio() {
       <img
         className="w-32 h-32 mb-12 profilePicture  rounded-full shadow-2xl"
         src="/picture.jpeg" />
-      <div ref={ ref} className="flex items-center space-y-4 flex-col">
-        <p className="text-8xl helloWorld introText font-bold text-white ">Hello World</p>
-        <p className="text-4xl introText font-bold text-white">I'm Jacob</p>
-        <p className="text-4xl introText font-bold text-white">
+      <div ref={ ref} className="flex items-center space-y-4 text-center justify-center flex-col">
+        <p className="xl:text-8xl text-4xl md:text-5xl helloWorld introText font-bold text-white ">Hello World</p>
+        <p className="xl:text-4xl text-xl md:text-2xl introText font-bold text-white">I'm Jacob</p>
+        <p className="xl:text-4xl text-xl md:text-2xl introText font-bold text-white">
           A CS Student interested in Web Development and AI
         </p>
     </div>
