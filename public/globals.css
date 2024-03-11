@@ -3,6 +3,141 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+:root { 
+    --angle: 0deg;
+    --backendX: 200px;
+    --backendY: 200px;
+    --frontendX: 200px;
+    --frontendY: 200px;
+}
+
+.backendSkillsContainer { 
+    background: radial-gradient(circle at var(--backendX) var(--backendY) , rgba(246,246,246,0.2) 30%, rgba(0,0,0,0.2) 90%);
+    backdrop-filter: blur(6px);
+    transition: backdrop-filter 0.5s ease, transform 400ms ease-out;
+}
+
+
+.backendSkillsContainer:hover { 
+    transform: scale(1.02) translateY(-16px);
+  transition: backdrop-filter 0.3s ease, transform 300ms ease-out;
+    backdrop-filter: blur(20px);
+}
+
+.profilePicture { 
+    animation: profilePictureAnimation 500ms ease-out both;
+    animation-delay: 200ms;
+}
+
+.helloWorld {
+    background: linear-gradient(90deg, rgba(0,24,255,1) 0%, rgba(0,255,53,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 
+
+
+@keyframes profilePictureAnimation {
+    from { 
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+
+.frontendSkillsContainer { 
+background: radial-gradient(circle at var(--frontendX) var(--frontendY) , rgba(246,246,246,0.2) 30%, rgba(0,0,0,0.2) 90%);
+backdrop-filter: blur(6px);
+transition: backdrop-filter 0.5s ease, transform 300ms ease-out;
+}
+
+
+.frontendSkillsContainer:hover { 
+    transform: scale(1.02) translateY(-16px);
+    transition: backdrop-filter 0.3s ease, transform 300ms ease-out;
+    backdrop-filter: blur(20px);
+}
+
+
+
+
+.introText { 
+    transition: all ease-in-out 500ms;
+    opacity: 0;
+    transform: translateY(20%);
+}
+
+.introText.animate { 
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+
+
+.background { 
+    background: linear-gradient(var(--angle), rgba(2,0,36,1) 0%, rgba(117,9,121,1) 35%, rgba(0,212,255,1) 100%);
+
+}
+
+.fadeBackground { 
+background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%);
+opacity: 90%;
+}
+
+#risosCover { 
+    transition: all 200ms;
+    transform: translateX(-100%);
+}
+
+#risosCover.animate { 
+    transform: translateX(0%);
+}
+
+#carCover { 
+    transition: all 200ms;
+    transform: translateX(-100%);
+}
+
+#carCover.animate { 
+    transform: translateX(0%);
+}
+
+
+
+.customGrid {
+
+    padding-top: 2.5px;
+  
+    width: 110vw;
+
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, 80px); /* Repeat columns as needed */
+    grid-auto-rows: 80px; /* Height of each row */
+}
+
+@keyframes paddingChange {
+    0% { 
+        transform: scale(0.95);
+    }
+    50% { 
+        transform: scale(1.05);
+    }
+    100% { 
+        transform: scale(0.95)
+    }
+}
+
+.square {
+    animation: both paddingChange infinite 3s;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: black;/* Repeating gradient pattern */
+}
+
 
 
 html, body { 
