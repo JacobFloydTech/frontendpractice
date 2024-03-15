@@ -32,7 +32,8 @@ export default function Skills() {
 
     return ( 
         <div className="grid md:grid-cols-2 grid-cols-1  items-center justify-center md:gap-4 w-full 2xl:w-2/3 py-24 mx-auto text-white">
-            <div id='backend' onMouseEnter={() => document.addEventListener('mousemove', mouseBackendListener)} onMouseLeave={() => document.removeEventListener('mousemove', mouseBackendListener)} className="text-center border-2 border-white backendSkillsContainer overflow-visible  p-4 rounded-2xl  mx-auto relative w-[90%] md:w-3/4 lg:w-1/2 xl:w-2/3">   
+            <div id='backend' onMouseEnter={() => document.addEventListener('mousemove', mouseBackendListener)} onMouseLeave={() => document.removeEventListener('mousemove', mouseBackendListener)} className="text-center  border-2 border-white backendSkillsContainer overflow-visible  p-4 rounded-2xl  mx-auto relative w-[90%] md:w-3/4 lg:w-1/2 xl:w-2/3">   
+                <GrainFilter/>
                 <h1 className="font-bold text-3xl pb-2">Backend skills</h1>
                 <ul className="bg-inherit mx-auto text-left w-2/3 p-0 md:pl-8 xl:pl-14  flex flex-col space-y-4 text-sm md:text-lg xl:text-[21px]">
                     <li className="flex items-center space-x-2">
@@ -65,7 +66,8 @@ export default function Skills() {
             </div>
             <div id="frontend" onMouseEnter={() => document.addEventListener('mousemove', mouseFrontendListener
             )} onMouseLeave={() => document.removeEventListener('mousemove', mouseFrontendListener)} className="text-center frontendSkillsContainer mx-auto  w-[90%] md:w-3/4 lg:w-1/2 xl:w-2/3 border-2 p-4 h-full rounded-2xl flex flex-col 2xl:w-2/3 relative">
-                <h1  className="font-bold text-3xl">Frontend skills</h1>
+                <h1 className="font-bold text-3xl">Frontend skills</h1>
+                <GrainFilter/>
                 <ul className=" w-2/3 mx-auto md:pl-8 xl:pl-14 flex flex-col space-y-2 text-xl justify-around h-full">
                     <li className="flex space-x-2 text-center items-center">
                         <ReactLogo />
@@ -102,6 +104,19 @@ export default function Skills() {
                 </ul>
             </div>
         </div>
+    )
+}
+
+function GrainFilter() { 
+    return ( 
+        <svg className="w-full h-full absolute top-0 left-0 -z-50" viewBox="0 0 200 200">
+            <defs>
+                <filter id="noiseFilter">
+                    <feTurbulence type="fractalNoise" baseFrequency={1}/>
+                </filter>
+            </defs>
+            <rect width='100%' height='100%' opacity={0.2} filter="url(#noiseFilter)"/>
+        </svg>
     )
 }
 

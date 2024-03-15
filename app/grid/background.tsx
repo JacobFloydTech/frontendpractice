@@ -1,31 +1,53 @@
 'use client'
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Background() {
     useEffect(() => { 
+        setUpGrid();
         let angle = 0;
         const updateAngle = () => {
-                document.body.style.setProperty('--angle', `${angle}deg`);
+                document.body.style.setProperty('--rotateLogoBackground', `${angle}deg`);
                 angle += 0.5;
                 requestAnimationFrame(updateAngle);
         };
         updateAngle();
         
+ 
+    }, [])
+    const setUpGrid = () => { 
+        const el = document.getElementById('customGrid');
+        let {amount, rowCount} = calculateRowCount();
+        if (!el) { return; }
 
-    },[])
+   
+        for (var x = 0; x < amount; x++) { 
+            const squareElemeent = document.createElement('div');
+            squareElemeent.classList.add('square');
+            const row = x % rowCount;
+            const col = Math.floor(x / rowCount);
+            const delay = Math.sqrt(row *col/2)/3;
+            squareElemeent.style.animationDelay = `${delay}s`;
+            el.appendChild(squareElemeent);
+        }
+    }
+
+    const calculateRowCount = () => { 
+        const height = document.body.clientHeight;
+        const width = document.body.clientWidth;
+        const gridItemWidth = 75;
+        const rowCount = Math.floor(height / gridItemWidth);
+        const itemsPerRow = Math.floor(width / gridItemWidth);
+        const amount = rowCount * itemsPerRow;
+        return { amount, rowCount };
+    }
+
     return (
-        <div >
+        <div id='backgroundContainer'>
             <div className=" w-full absolute background h-full -z-20" />
-            <div className="w-full  h-screen fixed fadeBackground z-50"/>
-            <div className="customGrid w-screen h-full p-0 m-0 mx-auto">
-                {Array.from({ length: 600 }).map((_, index) => {
-                      const col = index % 24;
-    const row = Math.floor(index / 24);
-           
-                    return <div key={index} className="square text-white text-2xl" style={{animationDelay: `${(col*row/2)/20}s`}}></div>
-                }
-                )}
-            </div>
+            <div className="fadeBackground z-50"/>
+            <div id='customGrid' className="customGrid overflow-hidden w-screen  p-0 m-0 mx-auto"/>
+        
+                     
         </div>
 
     );
