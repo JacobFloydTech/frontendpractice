@@ -12,6 +12,7 @@ export default function Portfolio() {
   useEffect(() => { 
     setGsapScaleAnimation();
     setTextAnimation();
+    animateText();
   }, [])
   const setGsapScaleAnimation = () => { 
     if (!ref.current) { return }
@@ -42,19 +43,44 @@ export default function Portfolio() {
     Array.from(parent.children).forEach((e) => { 
       e.classList.add('animate')
     })
-    
+
+  }
+  const animateText  =() => { 
+    const el = document.getElementById('helloWorld')
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('').map((e) => e.toLowerCase())
+    const originalString = el?.textContent;
+    if (!el || !originalString || originalString != 'Hello World') { return }
+    let interval = 0;
+    const generate = setInterval(() => { 
+      if (interval >= originalString.length) { 
+        clearInterval(generate);
+      }
+      let s = originalString
+        .split("")
+        .splice(Math.floor(interval))
+        .map((e, i) =>  e == " " ? e : letters[Math.floor(Math.random() * letters.length)])
+        .join("");
+      s = originalString.split("").splice(0, Math.floor(interval)).join("") + s;
+      el.textContent = s;
+      interval += 0.1;
+    }, 50)
+
+
+
+
+
   }
   
   return (
     <div className="z-50 w-full flex flex-col pt-24 justify-center items-center">
       <div id='profileImageContainer' className="w-32 h-32 relative backdrop-blur-xl">
-        <img
-          className="w-32 h-32 mb-12 profilePicture absolute z-50 rounded-full shadow-2xl"
-          src="/picture.jpeg" />
+     <img
+        className="w-32 h-32 mb-12 profilePicture absolute z-50 rounded-full shadow-2xl"
+        src="/picture.jpeg" />
         <Circle/>
         </div>
       <div ref={ ref} className="flex items-center pt-8 space-y-6 text-center justify-center flex-col">
-        <p className="p-2 bg-[rgba(137,137,137,0.1)] backdrop-blur-[1.5px] p-x4 rounded-3xl xl:text-8xl text-4xl md:text-5xl helloWorld introText font-bold text-white ">Hello World</p>
+        <p  onMouseOver={() => animateText()} id='helloWorld' className="p-2 bg-[rgba(137,137,137,0.1)] backdrop-blur-[1.5px] p-x4 rounded-3xl xl:text-8xl text-4xl md:text-5xl helloWorld introText font-bold text-white ">Hello World</p>
         <p className="p-2 bg-[rgba(137,137,137,0.1)] backdrop-blur-[1.5px] p-x4 rounded-3xl xl:text-4xl text-xl md:text-2xl introText font-bold text-white">I'm Jacob</p>
         <p className="p-2 bg-[rgba(137,137,137,0.1)] backdrop-blur-[1.5px] p-x4 rounded-3xl xl:text-4xl text-xl md:text-2xl introText font-bold text-white">
           A CS Student interested in Web Development and AI

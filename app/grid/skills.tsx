@@ -107,15 +107,15 @@ export default function Skills() {
     )
 }
 
-function GrainFilter() { 
+export function GrainFilter() { 
     return ( 
-        <svg className="w-full h-full absolute top-0 left-0 -z-50" viewBox="0 0 200 200">
+        <svg className="w-full h-full absolute top-0 left-0 -z-50">
             <defs>
                 <filter id="noiseFilter">
                     <feTurbulence type="fractalNoise" baseFrequency={1}/>
                 </filter>
             </defs>
-            <rect width='100%' height='100%' opacity={0.2} filter="url(#noiseFilter)"/>
+            <rect x='0' y='0' height='100%' opacity={0.2} width='100%' filter="url(#noiseFilter)"/>
         </svg>
     )
 }
