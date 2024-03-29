@@ -1,6 +1,9 @@
 'use client'
 
-import React from "react"
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import React, { useEffect } from "react"
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Skills() { 
 
@@ -17,7 +20,7 @@ export default function Skills() {
 
     }
 
-        const mouseFrontendListener = (mouse: MouseEvent) => {
+    const mouseFrontendListener = (mouse: MouseEvent) => {
         const el = document.getElementById('frontend');
         
         if (!el) { return; }
@@ -30,8 +33,24 @@ export default function Skills() {
 
     }
 
+    useEffect(() => { 
+        ['backend', 'frontend'].map(e => document.getElementById(e)).forEach((e) => { 
+            if (!e) { return }
+            gsap.fromTo(e, { 
+                opacity: 0,
+                ease: 'sine'
+            }, {
+                opacity: 1, scrollTrigger: { 
+                    trigger: e,
+                    scrub: true,
+                    start: "-30% 50%",
+                    end: '10% 50%'
+            }})
+        })
+    })
+
     return ( 
-        <div className="grid md:grid-cols-2 grid-cols-1  items-center justify-center md:gap-4 w-full 2xl:w-2/3 py-24 mx-auto text-white">
+        <div className="grid md:grid-cols-2 grid-cols-1  items-center justify-center gap-4 w-full 2xl:w-2/3 py-24 mx-auto text-white">
             <div id='backend' onMouseEnter={() => document.addEventListener('mousemove', mouseBackendListener)} onMouseLeave={() => document.removeEventListener('mousemove', mouseBackendListener)} className="text-center  border-2 border-white backendSkillsContainer overflow-visible  p-4 rounded-2xl  mx-auto relative w-[90%] md:w-3/4 lg:w-1/2 xl:w-2/3">   
                 <GrainFilter/>
                 <h1 className="font-bold text-3xl pb-2">Backend skills</h1>

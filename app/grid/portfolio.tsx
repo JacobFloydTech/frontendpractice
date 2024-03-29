@@ -73,9 +73,9 @@ export default function Portfolio() {
   
   return (
     <div className="z-50 w-full flex flex-col pt-24 justify-center items-center">
-      <div id='profileImageContainer' className="w-32 h-32 relative backdrop-blur-xl">
+      <div id='profileImageContainer' className=" h-28 w-28 md:w-32 md:h-32 relative backdrop-blur-xl">
      <img
-        className="w-32 h-32 mb-12 profilePicture absolute z-50 rounded-full shadow-2xl"
+        className="w-full h-full mb-12 profilePicture absolute z-50 rounded-full shadow-2xl"
         src="/picture.jpeg" />
         <Circle/>
         </div>

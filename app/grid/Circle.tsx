@@ -95,12 +95,12 @@ export default function Circle() {
         }
     }
     return ( 
-        <svg id='svgLogoBackground' height='100%' width='100%' viewBox="0 0 400 400" className="svgLogoBackground">
+        <svg id='svgLogoBackground'  viewBox="0 0 400 400" className="svgLogoBackground rounded-full overflow-hidden">
 
-  <circle cx="200" cy="200" r="100" fill="transparent" stroke="black" />
+  <circle  cx="200" cy="200" r="100" fill="transparent" stroke="black" />
 
 
-  <g id="lines">
+  <g filter="blur(50px)" id="lines">
   
   </g>
 </svg>

@@ -20,7 +20,7 @@ export default function Background() {
         if (!el) { return; }
 
    
-        for (var x = 0; x < amount; x++) { 
+        for (var x = 0; x < 300; x++) { 
             const squareElemeent = document.createElement('div');
             squareElemeent.classList.add('square');
             const row = x % rowCount;
@@ -47,7 +47,7 @@ export default function Background() {
             <div className="fadeBackground z-50"/>
             <div id='customGrid' className="customGrid overflow-hidden w-screen  p-0 m-0 mx-auto"/>
         
-                     
+            
         </div>
 
     );
